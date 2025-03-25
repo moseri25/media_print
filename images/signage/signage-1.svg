@@ -1,0 +1,42 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Building wall -->
+  <rect x="100" y="50" width="400" height="300" fill="#dee2e6"/>
+  
+  <!-- 3D letters -->
+  <g transform="translate(150, 150)">
+    <!-- Letter מ -->
+    <rect x="0" y="0" width="40" height="80" fill="#0056b3"/>
+    <rect x="0" y="0" width="40" height="80" fill="#0056b3" transform="translate(5, 5)" fill-opacity="0.7"/>
+    <rect x="0" y="0" width="40" height="80" fill="#0056b3" transform="translate(10, 10)" fill-opacity="0.5"/>
+    
+    <!-- Letter ד -->
+    <rect x="60" y="0" width="40" height="80" fill="#0056b3"/>
+    <rect x="60" y="0" width="40" height="80" fill="#0056b3" transform="translate(5, 5)" fill-opacity="0.7"/>
+    <rect x="60" y="0" width="40" height="80" fill="#0056b3" transform="translate(10, 10)" fill-opacity="0.5"/>
+    
+    <!-- Letter י -->
+    <rect x="120" y="0" width="10" height="80" fill="#0056b3"/>
+    <rect x="120" y="0" width="10" height="80" fill="#0056b3" transform="translate(5, 5)" fill-opacity="0.7"/>
+    <rect x="120" y="0" width="10" height="80" fill="#0056b3" transform="translate(10, 10)" fill-opacity="0.5"/>
+    
+    <!-- Letter ה -->
+    <rect x="150" y="0" width="40" height="80" fill="#0056b3"/>
+    <rect x="150" y="0" width="40" height="80" fill="#0056b3" transform="translate(5, 5)" fill-opacity="0.7"/>
+    <rect x="150" y="0" width="40" height="80" fill="#0056b3" transform="translate(10, 10)" fill-opacity="0.5"/>
+    
+    <!-- Letter פ -->
+    <rect x="210" y="0" width="40" height="80" fill="#0056b3"/>
+    <rect x="210" y="0" width="40" height="80" fill="#0056b3" transform="translate(5, 5)" fill-opacity="0.7"/>
+    <rect x="210" y="0" width="40" height="80" fill="#0056b3" transform="translate(10, 10)" fill-opacity="0.5"/>
+    
+    <!-- Letter ר -->
+    <rect x="270" y="0" width="40" height="80" fill="#0056b3"/>
+    <rect x="270" y="0" width="40" height="80" fill="#0056b3" transform="translate(5, 5)" fill-opacity="0.7"/>
+    <rect x="270" y="0" width="40" height="80" fill="#0056b3" transform="translate(10, 10)" fill-opacity="0.5"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="300" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#0056b3">אותיות בולטות תלת מימד</text>
+</svg>

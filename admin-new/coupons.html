@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול קופונים | מדיה פרינט</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Main CSS File -->
+    <link href="css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-print me-2"></i> מדיה פרינט
+                </a>
+                
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">התראות</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart text-primary me-2"></i> הזמנה חדשה התקבלה</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user text-success me-2"></i> לקוח חדש נרשם</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle text-warning me-2"></i> מוצר אזל מהמלאי</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">צפה בכל ההתראות</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown ms-3">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                            <span class="d-none d-md-inline">מנהל</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> פרופיל</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> הגדרות</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> התנתק</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>לוח בקרה</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">
+                    <i class="fas fa-box"></i>
+                    <span>מוצרים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>הזמנות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="customers.html">
+                    <i class="fas fa-users"></i>
+                    <span>לקוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="categories.html">
+                    <i class="fas fa-tags"></i>
+                    <span>קטגוריות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="coupons.html">
+                    <i class="fas fa-percent"></i>
+                    <span>קופונים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>דוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>הגדרות</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="../index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>צפה באתר</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Sidebar Backdrop -->
+    <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="container-fluid">
+            <!-- Page Title & Actions -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="page-title">
+                    <i class="fas fa-percent"></i>
+                    <span>ניהול קופונים</span>
+                </h1>
+                
+                <div>
+                    <button class="admin-btn admin-btn-primary" data-bs-toggle="modal" data-bs-target="#couponModal">
+                        <i class="fas fa-plus"></i>
+                        <span>צור קופון חדש</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="admin-card fade-in mb-4">
+                <div class="admin-card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <label for="couponStatusFilter" class="form-label">סטטוס</label>
+                            <select class="form-select" id="couponStatusFilter">
+                                <option value="all">כל הקופונים</option>
+                                <option value="active">פעילים</option>
+                                <option value="expired">פגי תוקף</option>
+                                <option value="scheduled">מתוזמנים</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <label for="couponTypeFilter" class="form-label">סוג הנחה</label>
+                            <select class="form-select" id="couponTypeFilter">
+                                <option value="all">כל הסוגים</option>
+                                <option value="percentage">אחוזים</option>
+                                <option value="fixed">סכום קבוע</option>
+                                <option value="free_shipping">משלוח חינם</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <label for="searchCoupons" class="form-label">חיפוש</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="searchCoupons" placeholder="חיפוש לפי קוד קופון או תיאור">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="admin-btn admin-btn-primary w-100" id="applyFiltersBtn">
+                                <i class="fas fa-filter"></i>
+                                <span>החל סינון</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coupons Table -->
+            <div class="admin-card fade-in">
+                <div class="admin-card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table admin-table mb-0" id="couponsTable">
+                            <thead>
+                                <tr>
+                                    <th width="5%">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="selectAllCoupons">
+                                        </div>
+                                    </th>
+                                    <th width="15%">קוד קופון</th>
+                                    <th width="20%">תיאור</th>
+                                    <th width="10%">סוג</th>
+                                    <th width="10%">ערך</th>
+                                    <th width="10%">מינימום</th>
+                                    <th width="10%">תאריך תפוגה</th>
+                                    <th width="10%">שימושים</th>
+                                    <th width="10%" class="text-center">פעולות</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic content will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                            <i class="fas fa-chevron-right me-0"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="fas fa-chevron-left me-0"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Coupon Modal -->
+    <div class="modal fade admin-modal" id="couponModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">יצירת קופון חדש</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="couponForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="couponCode" class="form-label">קוד קופון</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="couponCode" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="generateCouponBtn">
+                                        <i class="fas fa-random"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="couponType" class="form-label">סוג הנחה</label>
+                                <select class="form-select" id="couponType" required>
+                                    <option value="percentage">אחוזים</option>
+                                    <option value="fixed">סכום קבוע</option>
+                                    <option value="free_shipping">משלוח חינם</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="couponValue" class="form-label">ערך הקופון</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="couponValue" min="0" required>
+                                    <span class="input-group-text" id="valueSymbol">%</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="minimumOrder" class="form-label">הזמנה מינימלית</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">₪</span>
+                                    <input type="number" class="form-control" id="minimumOrder" min="0" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="startDate" class="form-label">תאריך התחלה</label>
+                                <input type="date" class="form-control" id="startDate" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="expiryDate" class="form-label">תאריך תפוגה</label>
+                                <input type="date" class="form-control" id="expiryDate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="usageLimit" class="form-label">מגבלת שימושים</label>
+                                <input type="number" class="form-control" id="usageLimit" min="0" value="0" placeholder="0 = ללא הגבלה">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="perCustomer" class="form-label">מגבלה ללקוח</label>
+                                <input type="number" class="form-control" id="perCustomer" min="0" value="1" placeholder="כמה פעמים לקוח יכול להשתמש בקופון">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="couponDescription" class="form-label">תיאור</label>
+                            <textarea class="form-control" id="couponDescription" rows="2" placeholder="תיאור פנימי של הקופון"></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="couponActive" checked>
+                                    <label class="form-check-label" for="couponActive">פעיל</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="individualUse">
+                                    <label class="form-check-label" for="individualUse">שימוש בודד (לא ניתן לשלב עם קופונים אחרים)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="couponId" value="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="admin-btn admin-btn-light" data-bs-dismiss="modal">ביטול</button>
+                    <button type="button" class="admin-btn admin-btn-primary" id="saveCouponBtn">שמירה</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=972509625398&text=שלום,%20אני%20מעוניין%20לקבל%20פרטים%20נוספים" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS File -->
+    <script>
+        // DOM Elements
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('adminSidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Toggle sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            sidebarBackdrop.classList.toggle('show');
+        });
+        
+        // Close sidebar when clicking on backdrop
+        sidebarBackdrop.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            sidebarBackdrop.classList.remove('show');
+        });
+        
+        // Handle logout
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Clear auth token or session
+            localStorage.removeItem('adminLoggedIn');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+        
+        // Check login status
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Check login status on page load
+        checkLoginStatus();
+        
+        // Sample Coupons Data
+        const coupons = [
+            {
+                id: 1,
+                code: 'WELCOME20',
+                description: 'קופון ברוכים הבאים',
+                type: 'percentage',
+                value: 20,
+                minimum: 100,
+                expiry: '2025-12-31',
+                usagesLimit: 0,
+                usagesCount: 45,
+                active: true
+            },
+            {
+                id: 2,
+                code: 'SUMMER50',
+                description: 'מבצע קיץ',
+                type: 'percentage',
+                value: 50,
+                minimum: 300,
+                expiry: '2025-08-31',
+                usagesLimit: 100,
+                usagesCount: 32,
+                active: true
+            },
+            {
+                id: 3,
+                code: 'FREESHIP',
+                description: 'משלוח חינם',
+                type: 'free_shipping',
+                value: 0,
+                minimum: 200,
+                expiry: '2025-12-31',
+                usagesLimit: 0,
+                usagesCount: 78,
+                active: true
+            },
+            {
+                id: 4,
+                code: 'FIXED100',
+                description: 'הנחה של 100 ש״ח',
+                type: 'fixed',
+                value: 100,
+                minimum: 500,
+                expiry: '2025-06-30',
+                usagesLimit: 50,
+                usagesCount: 12,
+                active: true
+            },
+            {
+                id: 5,
+                code: 'WINTER25',
+                description: 'מבצע חורף',
+                type: 'percentage',
+                value: 25,
+                minimum: 150,
+                expiry: '2024-12-31',
+                usagesLimit: 0,
+                usagesCount: 0,
+                active: false
+            }
+        ];
+        
+        // Function to get type label
+        function getTypeLabel(type) {
+            const types = {
+                'percentage': 'אחוזים',
+                'fixed': 'סכום קבוע',
+                'free_shipping': 'משלוח חינם'
+            };
+            
+            return types[type] || 'לא ידוע';
+        }
+        
+        // Function to get value display
+        function getValueDisplay(type, value) {
+            if (type === 'percentage') {
+                return `${value}%`;
+            } else if (type === 'fixed') {
+                return `₪${value}`;
+            } else if (type === 'free_shipping') {
+                return 'משלוח חינם';
+            }
+            return value;
+        }
+        
+        // Function to format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('he-IL');
+        }
+        
+        // Function to get status
+        function getCouponStatus(coupon) {
+            if (!coupon.active) {
+                return 'לא פעיל';
+            }
+            
+            const now = new Date();
+            const expiry = new Date(coupon.expiry);
+            
+            if (expiry < now) {
+                return 'פג תוקף';
+            }
+            
+            if (coupon.usagesLimit > 0 && coupon.usagesCount >= coupon.usagesLimit) {
+                return 'נוצל במלואו';
+            }
+            
+            return 'פעיל';
+        }
+        
+        // Function to load coupons
+        function loadCoupons() {
+            const couponsTable = document.getElementById('couponsTable').getElementsByTagName('tbody')[0];
+            let html = '';
+            
+            coupons.forEach(coupon => {
+                html += `
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="${coupon.id}">
+                            </div>
+                        </td>
+                        <td><span class="fw-bold">${coupon.code}</span></td>
+                        <td>${coupon.description}</td>
+                        <td>${getTypeLabel(coupon.type)}</td>
+                        <td>${getValueDisplay(coupon.type, coupon.value)}</td>
+                        <td>${coupon.minimum > 0 ? `₪${coupon.minimum}` : '-'}</td>
+                        <td>${formatDate(coupon.expiry)}</td>
+                        <td>${coupon.usagesCount}${coupon.usagesLimit > 0 ? `/${coupon.usagesLimit}` : ''}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-primary me-1" onclick="editCoupon(${coupon.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCoupon(${coupon.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            couponsTable.innerHTML = html;
+        }
+        
+        // Function to edit coupon
+        function editCoupon(couponId) {
+            const coupon = coupons.find(c => c.id === couponId);
+            if (coupon) {
+                // Set modal title
+                document.querySelector('#couponModal .modal-title').textContent = 'עריכת קופון';
+                
+                // Set form values
+                document.getElementById('couponId').value = coupon.id;
+                document.getElementById('couponCode').value = coupon.code;
+                document.getElementById('couponType').value = coupon.type;
+                document.getElementById('couponValue').value = coupon.value;
+                document.getElementById('minimumOrder').value = coupon.minimum;
+                
+                // Set dates
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('startDate').value = today;
+                document.getElementById('expiryDate').value = coupon.expiry;
+                
+                document.getElementById('usageLimit').value = coupon.usagesLimit;
+                document.getElementById('perCustomer').value = 1;
+                document.getElementById('couponDescription').value = coupon.description;
+                document.getElementById('couponActive').checked = coupon.active;
+                
+                // Update value symbol
+                updateValueSymbol(coupon.type);
+                
+                // Show modal
+                const couponModal = new bootstrap.Modal(document.getElementById('couponModal'));
+                couponModal.show();
+            }
+        }
+        
+        // Function to delete coupon
+        function deleteCoupon(couponId) {
+            if (confirm(`האם אתה בטוח שברצונך למחוק את הקופון עם המזהה ${couponId}?`)) {
+                alert(`קופון #${couponId} נמחק בהצלחה`);
+                // Implement delete coupon functionality
+            }
+        }
+        
+        // Function to update value symbol based on coupon type
+        function updateValueSymbol(type) {
+            const valueSymbol = document.getElementById('valueSymbol');
+            const valueInput = document.getElementById('couponValue');
+            
+            if (type === 'percentage') {
+                valueSymbol.textContent = '%';
+                valueInput.disabled = false;
+            } else if (type === 'fixed') {
+                valueSymbol.textContent = '₪';
+                valueInput.disabled = false;
+            } else if (type === 'free_shipping') {
+                valueSymbol.textContent = '₪';
+                valueInput.value = 0;
+                valueInput.disabled = true;
+            }
+        }
+        
+        // Generate random coupon code
+        document.getElementById('generateCouponBtn').addEventListener('click', function() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 8; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('couponCode').value = code;
+        });
+        
+        // Update value symbol when coupon type changes
+        document.getElementById('couponType').addEventListener('change', function() {
+            updateValueSymbol(this.value);
+        });
+        
+        // Save coupon
+        document.getElementById('saveCouponBtn').addEventListener('click', function() {
+            const form = document.getElementById('couponForm');
+            if (form.checkValidity()) {
+                alert('קופון נשמר בהצלחה');
+                // Implement save coupon functionality
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('couponModal'));
+                modal.hide();
+                
+                // Reset form for future use
+                document.getElementById('couponId').value = '';
+                document.getElementById('couponForm').reset();
+                
+                // Reload coupons data
+                loadCoupons();
+            } else {
+                form.reportValidity();
+            }
+        });
+        
+        // Select all coupons
+        document.getElementById('selectAllCoupons').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('#couponsTable tbody input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set today's date as default start date
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('startDate').value = today;
+            
+            // Set default expiry date (1 month from today)
+            const nextMonth = new Date();
+            nextMonth.setMonth(nextMonth.getMonth() + 1);
+            document.getElementById('expiryDate').value = nextMonth.toISOString().split('T')[0];
+            
+            // Load coupons data
+            loadCoupons();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Store front -->
+  <rect x="100" y="50" width="400" height="300" fill="#dee2e6"/>
+  
+  <!-- Window -->
+  <rect x="150" y="100" width="300" height="200" fill="#ffffff"/>
+  
+  <!-- Window branding -->
+  <rect x="170" y="120" width="260" height="160" fill="#0056b3" fill-opacity="0.2"/>
+  <text x="300" y="180" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="#0056b3">מדיה פרינט</text>
+  <text x="300" y="220" text-anchor="middle" font-family="Arial" font-size="20" fill="#0056b3">שילוט ומיתוג מקצועי</text>
+  
+  <!-- Logo element -->
+  <circle cx="300" cy="260" r="30" fill="#0056b3" fill-opacity="0.5"/>
+  
+  <!-- Title -->
+  <text x="300" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#0056b3">מיתוג חלונות ראווה</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Exhibition stand structure -->
+  <rect x="100" y="100" width="400" height="200" fill="#e9ecef"/>
+  <rect x="150" y="150" width="300" height="150" fill="#dee2e6"/>
+  
+  <!-- Counter -->
+  <rect x="200" y="250" width="200" height="50" fill="#adb5bd"/>
+  
+  <!-- Backdrop sign -->
+  <rect x="180" y="160" width="240" height="80" fill="#0056b3"/>
+  <text x="300" y="200" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="white">מדיה פרינט</text>
+  <text x="300" y="230" text-anchor="middle" font-family="Arial" font-size="14" fill="white">שילוט ומיתוג מקצועי</text>
+  
+  <!-- Display materials -->
+  <rect x="180" y="260" width="50" height="30" fill="#0056b3" fill-opacity="0.5"/>
+  <rect x="250" y="260" width="50" height="30" fill="#0056b3" fill-opacity="0.5"/>
+  <rect x="320" y="260" width="50" height="30" fill="#0056b3" fill-opacity="0.5"/>
+  
+  <!-- Title -->
+  <text x="300" y="380" text-anchor="middle" font-family="Arial" font-size="18" fill="#0056b3">דוכן תערוכה</text>
+</svg>

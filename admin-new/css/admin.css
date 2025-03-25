@@ -1,0 +1,766 @@
+/* מדיה פרינט - סגנון ממשק ניהול */
+
+:root {
+    --primary-color: #0563bb;
+    --secondary-color: #0e2442;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --gray-color: #6c757d;
+    --border-color: #dee2e6;
+    --shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+/* תיקון כיוון לאייקונים */
+.fa, .fas, .far, .fab {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* סרגל ניווט עליון */
+.admin-navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.admin-navbar .navbar-brand {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.admin-navbar .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.admin-navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.admin-navbar .nav-link {
+    color: #555;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.admin-navbar .nav-link:hover,
+.admin-navbar .nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(5, 99, 187, 0.05);
+}
+
+/* סרגל צד */
+.admin-sidebar {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    z-index: 1020;
+    transition: var(--transition);
+    overflow-y: auto;
+}
+
+.admin-sidebar .nav-link {
+    color: #555;
+    padding: 0.85rem 1.5rem;
+    font-weight: 500;
+    border-right: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.admin-sidebar .nav-link i {
+    font-size: 1.1rem;
+    width: 25px;
+    text-align: center;
+    color: #888;
+    transition: var(--transition);
+}
+
+.admin-sidebar .nav-link:hover {
+    background-color: rgba(5, 99, 187, 0.05);
+    color: var(--primary-color);
+}
+
+.admin-sidebar .nav-link:hover i {
+    color: var(--primary-color);
+}
+
+.admin-sidebar .nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(5, 99, 187, 0.1);
+    border-right-color: var(--primary-color);
+}
+
+.admin-sidebar .nav-link.active i {
+    color: var(--primary-color);
+}
+
+.admin-sidebar .nav-item.dropdown .dropdown-menu {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.admin-sidebar .dropdown-item {
+    padding: 0.6rem 3rem 0.6rem 1.5rem;
+    color: #555;
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.admin-sidebar .dropdown-item:hover {
+    background-color: rgba(5, 99, 187, 0.05);
+    color: var(--primary-color);
+}
+
+.admin-sidebar .dropdown-item.active {
+    background-color: rgba(5, 99, 187, 0.1);
+    color: var(--primary-color);
+}
+
+/* תוכן ראשי */
+.admin-content {
+    margin-right: 250px;
+    margin-top: 70px;
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+/* כותרות */
+.page-title {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.page-title i {
+    font-size: 1.5rem;
+    margin-left: 0.75rem;
+    color: var(--primary-color);
+}
+
+/* כרטיסיות */
+.admin-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.admin-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.admin-card-header {
+    padding: 1.25rem 1.5rem;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-card-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+.admin-card-body {
+    padding: 1.5rem;
+}
+
+.admin-card-footer {
+    padding: 1rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* כרטיסיות סטטיסטיקה */
+.stats-card {
+    border-radius: 10px;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stats-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-left: 1.25rem;
+    color: #fff;
+}
+
+.stats-icon.primary {
+    background-color: var(--primary-color);
+}
+
+.stats-icon.success {
+    background-color: var(--success-color);
+}
+
+.stats-icon.warning {
+    background-color: var(--warning-color);
+}
+
+.stats-icon.danger {
+    background-color: var(--danger-color);
+}
+
+.stats-info h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--secondary-color);
+}
+
+.stats-info p {
+    color: var(--gray-color);
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* טבלאות */
+.admin-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.admin-table th {
+    font-weight: 600;
+    color: var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* תגיות סטטוס */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-badge i {
+    margin-left: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.status-badge.active {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+}
+
+.status-badge.warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+.status-badge.danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+}
+
+.status-badge.info {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: var(--info-color);
+}
+
+/* פעולות בטבלה */
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* תצוגה מקדימה של תמונות */
+.image-preview {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.image-preview:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* כפתורים */
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+.admin-btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(5, 99, 187, 0.25);
+    outline: none;
+}
+
+.admin-btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.admin-btn-primary:hover {
+    background-color: #0452a0;
+    color: #fff;
+}
+
+.admin-btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.admin-btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.admin-btn-danger {
+    background-color: var(--danger-color);
+    color: #fff;
+}
+
+.admin-btn-danger:hover {
+    background-color: #c82333;
+    color: #fff;
+}
+
+.admin-btn-outline-danger {
+    background-color: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+}
+
+.admin-btn-outline-danger:hover {
+    background-color: var(--danger-color);
+    color: #fff;
+}
+
+.admin-btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+/* עיצוב מודלים */
+.admin-modal .modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.admin-modal .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 1.5rem;
+}
+
+.admin-modal .modal-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.admin-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.admin-modal .modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 1.5rem;
+}
+
+/* עיצוב טפסים */
+.admin-form .form-label {
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.admin-form .form-control,
+.admin-form .form-select {
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.admin-form .form-control:focus,
+.admin-form .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(5, 99, 187, 0.15);
+}
+
+.admin-form .form-control.is-invalid,
+.admin-form .form-select.is-invalid {
+    border-color: var(--danger-color);
+}
+
+.admin-form .form-control.is-invalid:focus,
+.admin-form .form-select.is-invalid:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+}
+
+/* עיצוב תצוגה מקדימה של מוצר */
+.product-image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.product-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.product-preview-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.product-preview-content {
+    flex: 1;
+}
+
+.product-preview-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-preview-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.product-preview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.product-preview-detail {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.product-preview-detail-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    width: 100px;
+}
+
+.product-preview-detail-value {
+    color: #555;
+}
+
+/* עיצוב דפדוף */
+.admin-pagination {
+    margin-top: 1rem;
+}
+
+.admin-pagination .page-link {
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+}
+
+.admin-pagination .page-link:hover {
+    background-color: rgba(5, 99, 187, 0.05);
+    color: var(--primary-color);
+}
+
+.admin-pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* אנימציות */
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 991.98px) {
+    .admin-sidebar {
+        transform: translateX(100%);
+        box-shadow: none;
+    }
+    
+    .admin-sidebar.active {
+        transform: translateX(0);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .admin-content {
+        margin-right: 0;
+    }
+    
+    .admin-sidebar-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1010;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+    
+    .admin-sidebar-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* התאמה למסכים בינוניים */
+@media (min-width: 768px) {
+    .product-preview {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .product-preview-image {
+        width: 300px;
+    }
+}
+
+/* התאמה למסכים קטנים מאוד */
+@media (max-width: 575.98px) {
+    .admin-content {
+        padding: 1rem;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .admin-card-body {
+        padding: 1rem;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .admin-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* כפתור צף של וואטסאפ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* התראות טוסט */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1060;
+}
+
+.admin-toast {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 10px;
+    min-width: 300px;
+    max-width: 350px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.admin-toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.admin-toast-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-toast-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.75rem;
+    color: #fff;
+}
+
+.admin-toast-icon.success {
+    background-color: var(--success-color);
+}
+
+.admin-toast-icon.error {
+    background-color: var(--danger-color);
+}
+
+.admin-toast-icon.warning {
+    background-color: var(--warning-color);
+}
+
+.admin-toast-icon.info {
+    background-color: var(--info-color);
+}
+
+.admin-toast-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.admin-toast-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 0.5rem;
+}
+
+.admin-toast-body {
+    padding: 0.75rem 1rem;
+    color: #555;
+}

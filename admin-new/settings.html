@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הגדרות | מדיה פרינט</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.css">
+    
+    <!-- Main CSS File -->
+    <link href="css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-print me-2"></i> מדיה פרינט
+                </a>
+                
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">התראות</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart text-primary me-2"></i> הזמנה חדשה התקבלה</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user text-success me-2"></i> לקוח חדש נרשם</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle text-warning me-2"></i> מוצר אזל מהמלאי</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">צפה בכל ההתראות</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown ms-3">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                            <span class="d-none d-md-inline">מנהל</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> פרופיל</a></li>
+                            <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog me-2"></i> הגדרות</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> התנתק</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>לוח בקרה</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">
+                    <i class="fas fa-box"></i>
+                    <span>מוצרים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>הזמנות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="customers.html">
+                    <i class="fas fa-users"></i>
+                    <span>לקוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="categories.html">
+                    <i class="fas fa-tags"></i>
+                    <span>קטגוריות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="coupons.html">
+                    <i class="fas fa-percent"></i>
+                    <span>קופונים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>דוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>הגדרות</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="../index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>צפה באתר</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Sidebar Backdrop -->
+    <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="container-fluid">
+            <!-- Page Title -->
+            <h1 class="page-title mb-4">
+                <i class="fas fa-cog"></i>
+                <span>הגדרות</span>
+            </h1>
+            
+            <!-- Settings Navigation Tabs -->
+            <div class="admin-card fade-in mb-4">
+                <div class="admin-card-body">
+                    <ul class="nav nav-pills nav-fill mb-4" id="settingsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">
+                                <i class="fas fa-cog me-2"></i>כללי
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="store-tab" data-bs-toggle="tab" data-bs-target="#store" type="button" role="tab" aria-controls="store" aria-selected="false">
+                                <i class="fas fa-store me-2"></i>חנות
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="payments-tab" data-bs-toggle="tab" data-bs-target="#payments" type="button" role="tab" aria-controls="payments" aria-selected="false">
+                                <i class="fas fa-credit-card me-2"></i>תשלומים
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping" type="button" role="tab" aria-controls="shipping" aria-selected="false">
+                                <i class="fas fa-truck me-2"></i>משלוחים
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="domains-tab" data-bs-toggle="tab" data-bs-target="#domains" type="button" role="tab" aria-controls="domains" aria-selected="false">
+                                <i class="fas fa-globe me-2"></i>דומיינים וסנכרון
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications" type="button" role="tab" aria-controls="notifications" aria-selected="false">
+                                <i class="fas fa-bell me-2"></i>התראות
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button" role="tab" aria-controls="users" aria-selected="false">
+                                <i class="fas fa-users-cog me-2"></i>משתמשים
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="tab-content" id="settingsTabsContent">
+                <!-- General Settings -->
+                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-sliders-h me-2"></i>הגדרות כלליות</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="generalSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">מידע על האתר</label>
+                                            <div class="mb-3">
+                                                <label for="siteName" class="form-label">שם האתר</label>
+                                                <input type="text" class="form-control" id="siteName" value="מדיה פרינט">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="siteDescription" class="form-label">תיאור האתר</label>
+                                                <textarea class="form-control" id="siteDescription" rows="3">מדיה פרינט - פתרונות דפוס מתקדמים לעסקים ולאנשים פרטיים</textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">פרטי קשר</label>
+                                            <div class="mb-3">
+                                                <label for="contactEmail" class="form-label">דוא"ל</label>
+                                                <input type="email" class="form-control" id="contactEmail" value="info@mediaprint.co.il">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="contactPhone" class="form-label">טלפון</label>
+                                                <input type="tel" class="form-control" id="contactPhone" value="050-9625398">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="contactAddress" class="form-label">כתובת</label>
+                                                <input type="text" class="form-control" id="contactAddress" value="רח' הרצל 53, תל אביב">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">רשתות חברתיות</label>
+                                            <div class="mb-3">
+                                                <label for="facebookUrl" class="form-label">פייסבוק</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-facebook-f"></i></span>
+                                                    <input type="url" class="form-control" id="facebookUrl" value="https://facebook.com/mediaprint">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="instagramUrl" class="form-label">אינסטגרם</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                                                    <input type="url" class="form-control" id="instagramUrl" value="https://instagram.com/mediaprint">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="whatsappNumber" class="form-label">וואטסאפ</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fab fa-whatsapp"></i></span>
+                                                    <input type="tel" class="form-control" id="whatsappNumber" value="972509625398">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">לוגו האתר</label>
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="../img/logo.png" alt="לוגו" class="img-thumbnail me-3" style="max-width: 150px;">
+                                                    <div>
+                                                        <button type="button" class="btn btn-outline-primary mb-2">
+                                                            <i class="fas fa-upload me-2"></i>העלאת לוגו חדש
+                                                        </button>
+                                                        <p class="text-muted small mb-0">מומלץ להעלות תמונה בפורמט PNG, ברוחב של לפחות 250 פיקסלים.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">favicon (אייקון דפדפן)</label>
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="../img/favicon.ico" alt="favicon" class="img-thumbnail me-3" style="max-width: 64px;">
+                                                    <div>
+                                                        <button type="button" class="btn btn-outline-primary mb-2">
+                                                            <i class="fas fa-upload me-2"></i>העלאת favicon חדש
+                                                        </button>
+                                                        <p class="text-muted small mb-0">מומלץ להעלות תמונה בפורמט ICO או PNG בגודל 32x32 או 64x64 פיקסלים.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות מערכת</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="maintenanceMode">
+                                                    <label class="form-check-label" for="maintenanceMode">מצב תחזוקה</label>
+                                                </div>
+                                                <small class="form-text text-muted">כאשר מצב תחזוקה מופעל, האתר יהיה נגיש רק למנהלים.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="debugMode">
+                                                    <label class="form-check-label" for="debugMode">מצב דיבאג</label>
+                                                </div>
+                                                <small class="form-text text-muted">כאשר מצב דיבאג מופעל, הודעות שגיאה מפורטות יוצגו.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="saveGeneralSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>טיפים להגדרות כלליות</h6>
+                                        <ul class="ps-3 small">
+                                            <li>וודא שפרטי הקשר מעודכנים כדי שלקוחות יוכלו ליצור קשר בקלות.</li>
+                                            <li>הוסף קישורים לכל הרשתות החברתיות שלך לשיפור הנוכחות המקוונת.</li>
+                                            <li>הקפד על לוגו באיכות גבוהה עם רקע שקוף לתצוגה מיטבית.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-exclamation-triangle text-warning me-2"></i>שים לב</h6>
+                                        <p class="small">הפעלת מצב תחזוקה תגרום לכך שהאתר יהיה נגיש רק למנהלים. השתמש באופציה זו בזהירות ורק כאשר נדרש.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Store Settings -->
+                <div class="tab-pane fade" id="store" role="tabpanel" aria-labelledby="store-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-store me-2"></i>הגדרות חנות</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="storeSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות מכירה</label>
+                                            <div class="mb-3">
+                                                <label for="currency" class="form-label">מטבע</label>
+                                                <select class="form-select" id="currency">
+                                                    <option value="ILS" selected>₪ שקל (ILS)</option>
+                                                    <option value="USD">$ דולר (USD)</option>
+                                                    <option value="EUR">€ אירו (EUR)</option>
+                                                    <option value="GBP">£ ליש"ט (GBP)</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="taxRate" class="form-label">שיעור מע"מ (%)</label>
+                                                <input type="number" class="form-control" id="taxRate" value="17">
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="includeTax" checked>
+                                                    <label class="form-check-label" for="includeTax">הצג מחירים כולל מע"מ</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">קטלוג מוצרים</label>
+                                            <div class="mb-3">
+                                                <label for="productsPerPage" class="form-label">מוצרים בעמוד</label>
+                                                <select class="form-select" id="productsPerPage">
+                                                    <option value="12">12</option>
+                                                    <option value="24" selected>24</option>
+                                                    <option value="36">36</option>
+                                                    <option value="48">48</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="defaultProductSort" class="form-label">מיון ברירת מחדל</label>
+                                                <select class="form-select" id="defaultProductSort">
+                                                    <option value="popularity" selected>פופולריות</option>
+                                                    <option value="date">תאריך (חדש לישן)</option>
+                                                    <option value="price-asc">מחיר (נמוך לגבוה)</option>
+                                                    <option value="price-desc">מחיר (גבוה לנמוך)</option>
+                                                    <option value="name">שם (א-ת)</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="showOutOfStock" checked>
+                                                    <label class="form-check-label" for="showOutOfStock">הצג מוצרים שאזלו מהמלאי</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">מלאי</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="manageStock" checked>
+                                                    <label class="form-check-label" for="manageStock">ניהול מלאי</label>
+                                                </div>
+                                                <small class="form-text text-muted">כאשר מופעל, המערכת תעקוב אחר רמות המלאי של המוצרים.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="notifyLowStock" checked>
+                                                    <label class="form-check-label" for="notifyLowStock">התראות על מלאי נמוך</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lowStockThreshold" class="form-label">סף מלאי נמוך</label>
+                                                <input type="number" class="form-control" id="lowStockThreshold" value="5">
+                                                <small class="form-text text-muted">כמות המלאי שתיחשב כ"מלאי נמוך" ותפעיל התראה.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">סל קניות</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableCartPersist" checked>
+                                                    <label class="form-check-label" for="enableCartPersist">שמור סל קניות בין ביקורים</label>
+                                                </div>
+                                                <small class="form-text text-muted">אם מופעל, סל הקניות של המשתמש יישמר גם לאחר סגירת הדפדפן.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="cartExpiryDays" class="form-label">תפוגת סל קניות (ימים)</label>
+                                                <input type="number" class="form-control" id="cartExpiryDays" value="30">
+                                                <small class="form-text text-muted">כמה ימים לשמור על סל קניות לא פעיל.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableCrossDomainCart" checked>
+                                                    <label class="form-check-label" for="enableCrossDomainCart">סנכרון סל קניות בין דומיינים</label>
+                                                </div>
+                                                <small class="form-text text-muted">אם מופעל, סל הקניות יסונכרן בין כל הדומיינים של האתר.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="saveStoreSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>טיפים להגדרות חנות</h6>
+                                        <ul class="ps-3 small">
+                                            <li>וודא ששיעור המע"מ מוגדר כהלכה בהתאם לתקנות המס העדכניות במדינתך.</li>
+                                            <li>שימוש בסף מלאי נמוך מתאים יסייע לך לקבל התראות בזמן לפני שמוצרים אוזלים.</li>
+                                            <li>סנכרון סל קניות בין דומיינים יספק חוויית משתמש חלקה ללקוחות הגולשים באתר דרך כתובות שונות.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-lightbulb text-warning me-2"></i>המלצות</h6>
+                                        <p class="small">כדאי להשאיר את האופציה "הצג מוצרים שאזלו מהמלאי" מופעלת, כדי שלקוחות יוכלו לראות את כל המוצרים שלך, גם אם לא זמינים כרגע.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payments Settings -->
+                <div class="tab-pane fade" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-credit-card me-2"></i>הגדרות תשלומים</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="paymentsSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">אפשרויות תשלום</label>
+                                            
+                                            <!-- Credit Card -->
+                                            <div class="mb-3 border-bottom pb-3">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <div>
+                                                        <i class="far fa-credit-card me-2"></i>
+                                                        <span class="fw-medium">כרטיס אשראי</span>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="enableCreditCard" checked>
+                                                        <label class="form-check-label" for="enableCreditCard">הפעל</label>
+                                                    </div>
+                                                </div>
+                                                <div class="payment-method-options">
+                                                    <div class="mb-3">
+                                                        <label for="creditCardProvider" class="form-label">ספק סליקה</label>
+                                                        <select class="form-select" id="creditCardProvider">
+                                                            <option value="isracard" selected>Isracard / Mastercard / Visa</option>
+                                                            <option value="creditguard">CreditGuard</option>
+                                                            <option value="icredit">iCredit</option>
+                                                            <option value="pelecard">Pelecard</option>
+                                                            <option value="meshulam">Meshulam / מישורים</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="creditCardApiKey" class="form-label">מפתח API</label>
+                                                        <input type="password" class="form-control" id="creditCardApiKey" value="sk_test_51KmZkLDJ9qvUwZtY">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="creditCardTerminal" class="form-label">מספר מסוף</label>
+                                                        <input type="text" class="form-control" id="creditCardTerminal" value="0123456">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="creditCardTestMode" checked>
+                                                            <label class="form-check-label" for="creditCardTestMode">מצב בדיקה</label>
+                                                        </div>
+                                                        <small class="form-text text-muted">במצב בדיקה, עסקאות לא יחויבו בפועל.</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- PayPal -->
+                                            <div class="mb-3 border-bottom pb-3">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <div>
+                                                        <i class="fab fa-paypal me-2"></i>
+                                                        <span class="fw-medium">PayPal</span>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="enablePaypal">
+                                                        <label class="form-check-label" for="enablePaypal">הפעל</label>
+                                                    </div>
+                                                </div>
+                                                <div class="payment-method-options" style="display: none;">
+                                                    <div class="mb-3">
+                                                        <label for="paypalEmail" class="form-label">דוא"ל PayPal</label>
+                                                        <input type="email" class="form-control" id="paypalEmail" value="">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="paypalClientId" class="form-label">Client ID</label>
+                                                        <input type="text" class="form-control" id="paypalClientId" value="">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="paypalSecret" class="form-label">Secret</label>
+                                                        <input type="password" class="form-control" id="paypalSecret" value="">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="paypalTestMode" checked>
+                                                            <label class="form-check-label" for="paypalTestMode">מצב בדיקה</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bank Transfer -->
+                                            <div class="mb-3 border-bottom pb-3">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <div>
+                                                        <i class="fas fa-university me-2"></i>
+                                                        <span class="fw-medium">העברה בנקאית</span>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="enableBankTransfer" checked>
+                                                        <label class="form-check-label" for="enableBankTransfer">הפעל</label>
+                                                    </div>
+                                                </div>
+                                                <div class="payment-method-options">
+                                                    <div class="mb-3">
+                                                        <label for="bankName" class="form-label">שם הבנק</label>
+                                                        <input type="text" class="form-control" id="bankName" value="לאומי">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="bankBranch" class="form-label">מספר סניף</label>
+                                                        <input type="text" class="form-control" id="bankBranch" value="800">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="bankAccount" class="form-label">מספר חשבון</label>
+                                                        <input type="text" class="form-control" id="bankAccount" value="12345678">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="bankAccountName" class="form-label">שם בעל החשבון</label>
+                                                        <input type="text" class="form-control" id="bankAccountName" value="מדיה פרינט בע״מ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Cash on Delivery -->
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <div>
+                                                        <i class="fas fa-hand-holding-usd me-2"></i>
+                                                        <span class="fw-medium">תשלום במזומן בעת האיסוף</span>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="enableCashOnPickup" checked>
+                                                        <label class="form-check-label" for="enableCashOnPickup">הפעל</label>
+                                                    </div>
+                                                </div>
+                                                <div class="payment-method-options">
+                                                    <div class="mb-3">
+                                                        <label for="cashPickupInstructions" class="form-label">הוראות לתשלום במזומן</label>
+                                                        <textarea class="form-control" id="cashPickupInstructions" rows="3">ניתן לשלם במזומן בעת איסוף ההזמנה מהחנות. נא להכין את הסכום המדויק.</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות תשלום כלליות</label>
+                                            <div class="mb-3">
+                                                <label for="invoicePrefix" class="form-label">קידומת לחשבוניות</label>
+                                                <input type="text" class="form-control" id="invoicePrefix" value="INV-">
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="autoGenerateInvoice" checked>
+                                                    <label class="form-check-label" for="autoGenerateInvoice">צור חשבונית אוטומטית</label>
+                                                </div>
+                                                <small class="form-text text-muted">חשבונית תיווצר ותישלח אוטומטית לאחר השלמת התשלום.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="savePaymentsSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>טיפים להגדרות תשלום</h6>
+                                        <ul class="ps-3 small">
+                                            <li>וודא שפרטי הספק וההתחברות לשירותי הסליקה נכונים.</li>
+                                            <li>הפעל מצב בדיקה תחילה כדי לוודא שהתשלומים מתבצעים כהלכה.</li>
+                                            <li>הצע מספר אפשרויות תשלום כדי לספק ללקוחות גמישות מרבית.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-lock text-warning me-2"></i>אבטחה</h6>
+                                        <p class="small">מפתחות API ונתוני התחברות אחרים לשירותי סליקה הם רגישים. וודא שהם מאובטחים ואין גישה אליהם למשתמשים לא מורשים.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shipping Settings -->
+                <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-truck me-2"></i>הגדרות משלוחים</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="shippingSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות כלליות</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableShipping" checked>
+                                                    <label class="form-check-label" for="enableShipping">הפעל משלוחים</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableStorePickup" checked>
+                                                    <label class="form-check-label" for="enableStorePickup">הפעל איסוף עצמי</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="freeShippingEnabled" checked>
+                                                    <label class="form-check-label" for="freeShippingEnabled">הפעל משלוח חינם</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="freeShippingThreshold" class="form-label">סף למשלוח חינם (₪)</label>
+                                                <input type="number" class="form-control" id="freeShippingThreshold" value="300">
+                                                <small class="form-text text-muted">הסכום המינימלי להזמנה כדי לקבל משלוח חינם.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <label class="form-label fw-bold mb-0">שיטות משלוח</label>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" id="addShippingMethod">
+                                                    <i class="fas fa-plus me-1"></i>הוסף שיטת משלוח
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Shipping Methods List -->
+                                            <div id="shippingMethodsList">
+                                                <!-- Shipping Method 1 -->
+                                                <div class="shipping-method card mb-3">
+                                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                                        <h6 class="mb-0">שליח עד הבית</h6>
+                                                        <div>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger shipping-delete-btn">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">שם שיטת המשלוח</label>
+                                                            <input type="text" class="form-control shipping-method-name" value="שליח עד הבית">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">תיאור</label>
+                                                            <textarea class="form-control shipping-method-description" rows="2">משלוח באמצעות שליח עד לכתובת הלקוח. זמן אספקה: 2-4 ימי עסקים.</textarea>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <label class="form-label">עלות משלוח (₪)</label>
+                                                                <input type="number" class="form-control shipping-method-cost" value="30">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label">זמן אספקה (ימים)</label>
+                                                                <input type="number" class="form-control shipping-method-time" value="3">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input shipping-method-enabled" type="checkbox" checked>
+                                                            <label class="form-check-label">פעיל</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Shipping Method 2 -->
+                                                <div class="shipping-method card mb-3">
+                                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                                        <h6 class="mb-0">איסוף עצמי</h6>
+                                                        <div>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger shipping-delete-btn">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">שם שיטת המשלוח</label>
+                                                            <input type="text" class="form-control shipping-method-name" value="איסוף עצמי">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">תיאור</label>
+                                                            <textarea class="form-control shipping-method-description" rows="2">איסוף עצמי מהחנות בכתובת רח' הרצל 53, תל אביב. שעות פעילות: א'-ה' 9:00-18:00, ו' 9:00-14:00.</textarea>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <label class="form-label">עלות משלוח (₪)</label>
+                                                                <input type="number" class="form-control shipping-method-cost" value="0">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label">זמן אספקה (ימים)</label>
+                                                                <input type="number" class="form-control shipping-method-time" value="1">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input shipping-method-enabled" type="checkbox" checked>
+                                                            <label class="form-check-label">פעיל</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="saveShippingSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>טיפים להגדרות משלוח</h6>
+                                        <ul class="ps-3 small">
+                                            <li>הצע מספר אפשרויות משלוח כדי לענות על צרכי לקוחות שונים.</li>
+                                            <li>הגדר סף למשלוח חינם כדי לעודד לקוחות להגדיל את סכום ההזמנה.</li>
+                                            <li>וודא שעלויות המשלוח משקפות את העלויות האמיתיות כדי למנוע הפסדים.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-exclamation-circle text-success me-2"></i>איסוף עצמי</h6>
+                                        <p class="small">אפשרות האיסוף העצמי יעילה מאוד עבור עסקים מקומיים ויכולה לחסוך עלויות משלוח ללקוחות. ודא שפרטי האיסוף והכתובת מעודכנים.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Domains and Sync Settings -->
+                <div class="tab-pane fade" id="domains" role="tabpanel" aria-labelledby="domains-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-globe me-2"></i>הגדרות דומיינים וסנכרון</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="domainsSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות סנכרון</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableCrossDomainSync" checked>
+                                                    <label class="form-check-label" for="enableCrossDomainSync">הפעל סנכרון בין דומיינים</label>
+                                                </div>
+                                                <small class="form-text text-muted">סנכרון בין דומיינים מאפשר לשמור על מידע מסונכרן כאשר משתמשים ניגשים לאתר דרך כתובות שונות.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">נתונים לסנכרון</label>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="syncProducts" checked>
+                                                    <label class="form-check-label" for="syncProducts">סנכרון מוצרים</label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="syncCart" checked>
+                                                    <label class="form-check-label" for="syncCart">סנכרון סל קניות</label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="syncUserData">
+                                                    <label class="form-check-label" for="syncUserData">סנכרון נתוני משתמש</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="syncPreferences">
+                                                    <label class="form-check-label" for="syncPreferences">סנכרון העדפות</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <label class="form-label fw-bold mb-0">דומיינים מורשים</label>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" id="addDomainBtn">
+                                                    <i class="fas fa-plus me-1"></i>הוסף דומיין
+                                                </button>
+                                            </div>
+                                            <p class="small text-muted mb-3">הגדר את כל הדומיינים השונים שדרכם ניתן לגשת לאתר. סנכרון יתבצע רק בין דומיינים מורשים.</p>
+                                            
+                                            <!-- Domains List -->
+                                            <div id="domainsList">
+                                                <div class="domain-item d-flex align-items-center border rounded p-2 mb-2">
+                                                    <div class="flex-grow-1">
+                                                        <input type="text" class="form-control domain-url" value="localhost:8000">
+                                                    </div>
+                                                    <div class="ms-2">
+                                                        <button type="button" class="btn btn-sm btn-outline-danger domain-delete-btn">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="domain-item d-flex align-items-center border rounded p-2 mb-2">
+                                                    <div class="flex-grow-1">
+                                                        <input type="text" class="form-control domain-url" value="localhost:8080">
+                                                    </div>
+                                                    <div class="ms-2">
+                                                        <button type="button" class="btn btn-sm btn-outline-danger domain-delete-btn">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="domain-item d-flex align-items-center border rounded p-2 mb-2">
+                                                    <div class="flex-grow-1">
+                                                        <input type="text" class="form-control domain-url" value="127.0.0.1:60898">
+                                                    </div>
+                                                    <div class="ms-2">
+                                                        <button type="button" class="btn btn-sm btn-outline-danger domain-delete-btn">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות מתקדמות</label>
+                                            <div class="mb-3">
+                                                <label for="syncHelperPath" class="form-label">נתיב לקובץ sync-helper.html</label>
+                                                <input type="text" class="form-control" id="syncHelperPath" value="/sync-helper.html">
+                                                <small class="form-text text-muted">נתיב יחסי לקובץ sync-helper.html המשמש כמתווך בין דומיינים.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="syncInterval" class="form-label">מרווח סנכרון (בשניות)</label>
+                                                <input type="number" class="form-control" id="syncInterval" value="30">
+                                                <small class="form-text text-muted">מרווח זמן לסנכרון אוטומטי בין דומיינים.</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="syncOnPageLoad" checked>
+                                                    <label class="form-check-label" for="syncOnPageLoad">סנכרן בטעינת הדף</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="syncOnDataChange" checked>
+                                                    <label class="form-check-label" for="syncOnDataChange">סנכרן בעת שינוי נתונים</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="debugSyncMode">
+                                                    <label class="form-check-label" for="debugSyncMode">מצב דיבאג לסנכרון</label>
+                                                </div>
+                                                <small class="form-text text-muted">כאשר מופעל, פעולות סנכרון יתועדו בקונסול.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="saveDomainsSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>על סנכרון בין דומיינים</h6>
+                                        <p class="small">מערכת הסנכרון מאפשרת לשמור על עקביות בין גרסאות שונות של האתר הנגישות דרך כתובות URL שונות. זה מועיל במיוחד בזמן פיתוח או כאשר האתר נגיש דרך מספר דומיינים.</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-cogs text-primary me-2"></i>איך זה עובד?</h6>
+                                        <p class="small">המערכת משתמשת ב-iframe מוסתר ובמנגנון postMessage כדי להעביר נתונים בין דומיינים שונים. קובץ sync-helper.html משמש כמתווך בין הדומיינים השונים.</p>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-exclamation-triangle text-warning me-2"></i>שים לב</h6>
+                                        <p class="small">וודא שכל הדומיינים המורשים מוגדרים נכון. רק דומיינים שמופיעים ברשימה יוכלו להשתתף בסנכרון כדי למנוע בעיות אבטחה.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Notifications Settings -->
+                <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-bell me-2"></i>הגדרות התראות</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="notificationsSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות התראות</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableNotifications" checked>
+                                                    <label class="form-check-label" for="enableNotifications">הפעל התראות</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="notificationEmail" class="form-label">דוא"ל להתראות</label>
+                                                <input type="email" class="form-control" id="notificationEmail" value="info@mediaprint.co.il">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <label class="form-label fw-bold mb-0">סוגי התראות</label>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" id="addNotificationTypeBtn">
+                                                    <i class="fas fa-plus me-1"></i>הוסף סוג התראה
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Notification Types List -->
+                                            <div id="notificationTypesList">
+                                                <!-- Notification Type 1 -->
+                                                <div class="notification-type card mb-3">
+                                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                                        <h6 class="mb-0">הזמנה חדשה</h6>
+                                                        <div>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger notification-delete-btn">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">נושא התראה</label>
+                                                            <input type="text" class="form-control notification-subject" value="הזמנה חדשה">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">תוכן התראה</label>
+                                                            <textarea class="form-control notification-content" rows="3">לקוח חדש ביצע הזמנה. פרטי ההזמנה: [order_details]</textarea>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input notification-enabled" type="checkbox" checked>
+                                                            <label class="form-check-label">פעיל</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Notification Type 2 -->
+                                                <div class="notification-type card mb-3">
+                                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                                        <h6 class="mb-0">מוצר אזל מהמלאי</h6>
+                                                        <div>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger notification-delete-btn">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">נושא התראה</label>
+                                                            <input type="text" class="form-control notification-subject" value="מוצר אזל מהמלאי">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">תוכן התראה</label>
+                                                            <textarea class="form-control notification-content" rows="3">מוצר [product_name] אזל מהמלאי. נא לבדוק את רמות המלאי.</textarea>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input notification-enabled" type="checkbox" checked>
+                                                            <label class="form-check-label">פעיל</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="saveNotificationsSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>טיפים להגדרות התראות</h6>
+                                        <ul class="ps-3 small">
+                                            <li>וודא שכתובת הדוא"ל להתראות מדויקת.</li>
+                                            <li>הגדר סוגי התראות הרלוונטיים לעסקך.</li>
+                                            <li>השתמש במשתנים בתוכן ההתראה כדי להפוך אותם למותאמים אישית.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-exclamation-triangle text-warning me-2"></i>שים לב</h6>
+                                        <p class="small">וודא שכל התראות מופעלות רק כאשר נדרש. התראות מיותרות יכולות לגרום לתקלות ולבעיות אבטחה.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Users Settings -->
+                <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-users-cog me-2"></i>הגדרות משתמשים</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form id="usersSettingsForm">
+                                        <div class="mb-4">
+                                            <label class="form-label fw-bold">הגדרות משתמש</label>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="enableUserRegistration" checked>
+                                                    <label class="form-check-label" for="enableUserRegistration">הפעל רישום משתמש</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="defaultUserRole" class="form-label">תפקיד משתמש ברירת מחדל</label>
+                                                <select class="form-select" id="defaultUserRole">
+                                                    <option value="customer" selected>לקוח</option>
+                                                    <option value="admin">מנהל</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <label class="form-label fw-bold mb-0">תפקידי משתמש</label>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" id="addUserRoleBtn">
+                                                    <i class="fas fa-plus me-1"></i>הוסף תפקיד משתמש
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- User Roles List -->
+                                            <div id="userRolesList">
+                                                <!-- User Role 1 -->
+                                                <div class="user-role card mb-3">
+                                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                                        <h6 class="mb-0">לקוח</h6>
+                                                        <div>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger user-role-delete-btn">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">שם תפקיד</label>
+                                                            <input type="text" class="form-control user-role-name" value="לקוח">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">הרשאות</label>
+                                                            <div class="form-check mb-2">
+                                                                <input class="form-check-input" type="checkbox" id="customerPermissionsViewOrders" checked>
+                                                                <label class="form-check-label" for="customerPermissionsViewOrders">צפייה בהזמנות</label>
+                                                            </div>
+                                                            <div class="form-check mb-2">
+                                                                <input class="form-check-input" type="checkbox" id="customerPermissionsEditProfile" checked>
+                                                                <label class="form-check-label" for="customerPermissionsEditProfile">עריכת פרופיל</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- User Role 2 -->
+                                                <div class="user-role card mb-3">
+                                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                                        <h6 class="mb-0">מנהל</h6>
+                                                        <div>
+                                                            <button type="button" class="btn btn-sm btn-outline-danger user-role-delete-btn">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">שם תפקיד</label>
+                                                            <input type="text" class="form-control user-role-name" value="מנהל">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">הרשאות</label>
+                                                            <div class="form-check mb-2">
+                                                                <input class="form-check-input" type="checkbox" id="adminPermissionsViewOrders" checked>
+                                                                <label class="form-check-label" for="adminPermissionsViewOrders">צפייה בהזמנות</label>
+                                                            </div>
+                                                            <div class="form-check mb-2">
+                                                                <input class="form-check-input" type="checkbox" id="adminPermissionsEditProfile" checked>
+                                                                <label class="form-check-label" for="adminPermissionsEditProfile">עריכת פרופיל</label>
+                                                            </div>
+                                                            <div class="form-check mb-2">
+                                                                <input class="form-check-input" type="checkbox" id="adminPermissionsManageUsers" checked>
+                                                                <label class="form-check-label" for="adminPermissionsManageUsers">ניהול משתמשים</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary" id="saveUsersSettings">
+                                                <i class="fas fa-save me-2"></i>שמור הגדרות
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="admin-card fade-in">
+                                <div class="admin-card-header">
+                                    <h5><i class="fas fa-question-circle me-2"></i>עזרה ומידע</h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="fas fa-info-circle text-info me-2"></i>טיפים להגדרות משתמשים</h6>
+                                        <ul class="ps-3 small">
+                                            <li>וודא שתפקידי המשתמשים מוגדרים נכון.</li>
+                                            <li>הגדר הרשאות מתאימות לכל תפקיד.</li>
+                                            <li>השתמש ברישום משתמש כדי לאפשר ללקוחות לנהל את חשבונם.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h6><i class="fas fa-lock text-warning me-2"></i>אבטחה</h6>
+                                        <p class="small">הרשאות משתמשים הן רגישות. וודא שהן מוגדרות נכון כדי למנוע גישה לא מורשית.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

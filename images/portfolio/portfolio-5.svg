@@ -1,0 +1,19 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Billboard structure -->
+  <rect x="150" y="100" width="300" height="200" fill="#dee2e6"/>
+  <rect x="250" y="300" width="100" height="50" fill="#6c757d"/>
+  
+  <!-- Billboard content -->
+  <rect x="160" y="110" width="280" height="180" fill="#0056b3"/>
+  <text x="300" y="180" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="white">מדיה פרינט</text>
+  <text x="300" y="230" text-anchor="middle" font-family="Arial" font-size="20" fill="white">שילוט ומיתוג מקצועי לעסקים</text>
+  
+  <!-- Decorative elements -->
+  <rect x="200" y="150" width="200" height="2" fill="#ffffff"/>
+  <rect x="200" y="250" width="200" height="2" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="300" y="380" text-anchor="middle" font-family="Arial" font-size="18" fill="#0056b3">שלט חוצות גדול</text>
+</svg>

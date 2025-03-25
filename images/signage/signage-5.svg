@@ -1,0 +1,44 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Metal sign background -->
+  <rect x="100" y="100" width="400" height="200" rx="5" fill="#6c757d"/>
+  
+  <!-- Metal texture -->
+  <rect x="110" y="110" width="380" height="180" rx="3" fill="#adb5bd"/>
+  <line x1="110" y1="110" x2="490" y2="290" stroke="#dee2e6" stroke-width="1"/>
+  <line x1="110" y1="290" x2="490" y2="110" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Cut out letters -->
+  <g fill="#0056b3">
+    <!-- Letter מ -->
+    <rect x="150" y="150" width="30" height="80" rx="2"/>
+    
+    <!-- Letter ד -->
+    <rect x="200" y="150" width="30" height="80" rx="2"/>
+    
+    <!-- Letter י -->
+    <rect x="250" y="150" width="10" height="80" rx="2"/>
+    
+    <!-- Letter ה -->
+    <rect x="280" y="150" width="30" height="80" rx="2"/>
+    <rect x="280" y="190" width="30" height="5" rx="2"/>
+    
+    <!-- Letter פ -->
+    <rect x="330" y="150" width="30" height="80" rx="2"/>
+    <rect x="330" y="190" width="30" height="5" rx="2"/>
+    
+    <!-- Letter ר -->
+    <rect x="380" y="150" width="30" height="80" rx="2"/>
+    <rect x="380" y="150" width="30" height="5" rx="2"/>
+  </g>
+  
+  <!-- Metal screws -->
+  <circle cx="120" cy="120" r="5" fill="#495057"/>
+  <circle cx="480" cy="120" r="5" fill="#495057"/>
+  <circle cx="120" cy="280" r="5" fill="#495057"/>
+  <circle cx="480" cy="280" r="5" fill="#495057"/>
+  
+  <!-- Title -->
+  <text x="300" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#0056b3">שלט מתכת</text>
+</svg>

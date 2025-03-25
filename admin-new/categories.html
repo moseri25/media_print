@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול קטגוריות | מדיה פרינט</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Main CSS File -->
+    <link href="css/admin.css" rel="stylesheet">
+    
+    <!-- Vendor JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-print me-2"></i> מדיה פרינט
+                </a>
+                
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">התראות</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart text-primary me-2"></i> הזמנה חדשה התקבלה</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user text-success me-2"></i> לקוח חדש נרשם</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle text-warning me-2"></i> מוצר אזל מהמלאי</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">צפה בכל ההתראות</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown ms-3">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                            <span class="d-none d-md-inline">מנהל</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> פרופיל</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> הגדרות</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> התנתק</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>לוח בקרה</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">
+                    <i class="fas fa-box"></i>
+                    <span>מוצרים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>הזמנות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="customers.html">
+                    <i class="fas fa-users"></i>
+                    <span>לקוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="categories.html">
+                    <i class="fas fa-tags"></i>
+                    <span>קטגוריות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="coupons.html">
+                    <i class="fas fa-percent"></i>
+                    <span>קופונים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>דוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>הגדרות</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="../index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>צפה באתר</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Sidebar Backdrop -->
+    <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="container-fluid">
+            <!-- Page Title & Actions -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="page-title">
+                    <i class="fas fa-tags"></i>
+                    <span>ניהול קטגוריות</span>
+                </h1>
+                
+                <div>
+                    <button class="admin-btn admin-btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                        <i class="fas fa-plus"></i>
+                        <span>הוסף קטגוריה</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Categories Container -->
+            <div class="row">
+                <!-- Categories Management -->
+                <div class="col-lg-8">
+                    <div class="admin-card fade-in">
+                        <div class="admin-card-header">
+                            <h5 class="admin-card-title">קטגוריות מוצרים</h5>
+                            <div class="input-group" style="max-width: 300px;">
+                                <input type="text" class="form-control" id="searchCategories" placeholder="חיפוש קטגוריות...">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="admin-card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table admin-table mb-0" id="categoriesTable">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">מזהה</th>
+                                            <th width="10%">תמונה</th>
+                                            <th width="25%">שם</th>
+                                            <th width="10%">קטגוריית אב</th>
+                                            <th width="10%">מוצרים</th>
+                                            <th width="10%">סדר</th>
+                                            <th width="10%">סטטוס</th>
+                                            <th width="20%" class="text-center">פעולות</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Dynamic content will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Hierarchy -->
+                <div class="col-lg-4">
+                    <div class="admin-card fade-in">
+                        <div class="admin-card-header">
+                            <h5 class="admin-card-title">היררכיית קטגוריות</h5>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="category-tree" id="categoryTree">
+                                <!-- Category tree will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="admin-card-footer">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="admin-btn admin-btn-sm admin-btn-outline-primary" id="expandAllBtn">
+                                    <i class="fas fa-expand-alt"></i>
+                                    <span>הרחב הכל</span>
+                                </button>
+                                <button class="admin-btn admin-btn-sm admin-btn-outline-primary" id="collapseAllBtn">
+                                    <i class="fas fa-compress-alt"></i>
+                                    <span>כווץ הכל</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category Modal -->
+    <div class="modal fade admin-modal" id="categoryModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">הוספת קטגוריה חדשה</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="categoryForm">
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">שם הקטגוריה</label>
+                            <input type="text" class="form-control" id="categoryName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryParent" class="form-label">קטגוריית אב</label>
+                            <select class="form-select" id="categoryParent">
+                                <option value="0">ללא (קטגוריה ראשית)</option>
+                                <!-- Parent categories will be loaded here -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryDescription" class="form-label">תיאור</label>
+                            <textarea class="form-control" id="categoryDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryImage" class="form-label">תמונה</label>
+                            <input type="file" class="form-control" id="categoryImage" accept="image/*">
+                            <div id="imagePreviewContainer" class="mt-2 d-none">
+                                <img id="imagePreview" class="img-thumbnail" style="max-height: 100px;" src="" alt="תצוגה מקדימה">
+                                <button type="button" class="btn btn-sm btn-danger" id="removeImageBtn">הסר</button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryOrder" class="form-label">סדר</label>
+                            <input type="number" class="form-control" id="categoryOrder" min="0" value="0">
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="categoryStatus" checked>
+                            <label class="form-check-label" for="categoryStatus">
+                                פעיל
+                            </label>
+                        </div>
+                        <input type="hidden" id="categoryId" value="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="admin-btn admin-btn-light" data-bs-dismiss="modal">ביטול</button>
+                    <button type="button" class="admin-btn admin-btn-primary" id="saveCategoryBtn">שמירה</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=972509625398&text=שלום,%20אני%20מעוניין%20לקבל%20פרטים%20נוספים" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Vendor JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Main JS File -->
+    <script>
+        // DOM Elements
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('adminSidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Toggle sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            sidebarBackdrop.classList.toggle('show');
+        });
+        
+        // Close sidebar when clicking on backdrop
+        sidebarBackdrop.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            sidebarBackdrop.classList.remove('show');
+        });
+        
+        // Handle logout
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Clear auth token or session
+            localStorage.removeItem('adminLoggedIn');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+        
+        // Check login status
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Check login status on page load
+        checkLoginStatus();
+        
+        // Sample Categories Data - Default data only if localStorage is empty
+        let categories = [];
+        
+        // טעינת קטגוריות מה-localStorage
+        function loadCategoriesFromStorage() {
+            const storedCategories = localStorage.getItem('mediaprint_categories');
+            if (storedCategories) {
+                categories = JSON.parse(storedCategories);
+            } else {
+                // אם אין נתונים ב-localStorage, התחל עם מערך ריק
+                categories = [];
+                
+                // שמירת מערך ריק ב-localStorage
+                saveCategoriesAndSync();
+            }
+            
+            // עדכון התצוגה
+            loadCategoriesTable();
+            loadCategoryTree();
+            loadParentCategoriesSelect();
+        }
+        
+        // שמירת קטגוריות ב-localStorage וסנכרון עם דומיינים אחרים
+        function saveCategoriesAndSync() {
+            try {
+                // שמירת נתונים ב-localStorage עם חותמת זמן
+                const timestamp = new Date().getTime();
+                
+                // שמירת נתוני הקטגוריות ב-localStorage
+                localStorage.setItem('mediaprint_categories', JSON.stringify(categories));
+                localStorage.setItem('mediaprint_categories_timestamp', timestamp.toString());
+                
+                // סנכרון עם דומיינים אחרים
+                syncCategoriesWithOtherDomains();
+                
+                console.log('הקטגוריות נשמרו בהצלחה עם חותמת זמן:', timestamp);
+            } catch (e) {
+                console.error('שגיאה בשמירת הקטגוריות:', e);
+            }
+        }
+        
+        // פונקציה לסנכרון קטגוריות עם דומיינים אחרים
+        function syncCategoriesWithOtherDomains() {
+            // רשימת דומיינים מורשים
+            const allowedDomains = [
+                'http://localhost:8000',
+                'http://localhost:8080',
+                'http://127.0.0.1:8000',
+                'http://127.0.0.1:8080',
+                'http://127.0.0.1:60898'
+            ];
+            
+            // יצירת iframe לכל דומיין מורשה וסנכרון באמצעות postMessage
+            allowedDomains.forEach(domain => {
+                if (domain !== window.location.origin) {
+                    let iframe = document.getElementById(`sync-frame-${domain.replace(/[^\w]/g, '')}`);
+                    
+                    if (!iframe) {
+                        iframe = document.createElement('iframe');
+                        iframe.id = `sync-frame-${domain.replace(/[^\w]/g, '')}`;
+                        iframe.src = `${domain}/sync-helper.html`;
+                        iframe.style.display = 'none';
+                        document.body.appendChild(iframe);
+                    }
+                    
+                    // שליחת הודעה לסנכרון
+                    setTimeout(() => {
+                        iframe.contentWindow.postMessage({
+                            action: 'sync_categories',
+                            categories: categories
+                        }, domain);
+                    }, 1000);
+                }
+            });
+        }
+        
+        // האזנה להודעות סנכרון מדומיינים אחרים
+        window.addEventListener('message', function(event) {
+            // בדיקה אם ההודעה מגיעה מדומיין מורשה
+            const allowedDomains = [
+                'http://localhost:8000',
+                'http://localhost:8080',
+                'http://127.0.0.1:8000',
+                'http://127.0.0.1:8080',
+                'http://127.0.0.1:60898'
+            ];
+            
+            if (allowedDomains.includes(event.origin) && event.data.action === 'sync_categories') {
+                // עדכון הקטגוריות מהדומיין האחר
+                categories = event.data.categories;
+                localStorage.setItem('mediaprint_categories', JSON.stringify(categories));
+                
+                // רענון התצוגה
+                loadCategoriesTable();
+                loadCategoryTree();
+                loadParentCategoriesSelect();
+            }
+        });
+        
+        // Function to get parent category name
+        function getParentCategoryName(parentId) {
+            if (parentId === 0) {
+                return 'ללא';
+            }
+            
+            const parent = categories.find(cat => cat.id === parentId);
+            return parent ? parent.name : 'ללא';
+        }
+        
+        // Function to get status badge
+        function getStatusBadge(status) {
+            return status ? 
+                '<span class="badge bg-success">פעיל</span>' : 
+                '<span class="badge bg-danger">לא פעיל</span>';
+        }
+        
+        // Function to load categories table
+        function loadCategoriesTable() {
+            const categoriesTable = document.getElementById('categoriesTable').getElementsByTagName('tbody')[0];
+            let html = '';
+            
+            categories.forEach(category => {
+                html += `
+                    <tr data-category-id="${category.id}">
+                        <td>#${category.id}</td>
+                        <td>
+                            <img src="${category.image || 'https://via.placeholder.com/60x40?text=No+Image'}" 
+                                alt="${category.name}" class="img-thumbnail" 
+                                style="width: 60px; height: 40px; object-fit: cover;">
+                        </td>
+                        <td>${category.name}</td>
+                        <td>${getParentCategoryName(category.parent)}</td>
+                        <td>${category.products}</td>
+                        <td>${category.order}</td>
+                        <td>${getStatusBadge(category.status)}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-info me-1 view-category-btn" data-category-id="${category.id}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-sm btn-primary me-1 edit-category-btn" data-category-id="${category.id}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger delete-category-btn" data-category-id="${category.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            categoriesTable.innerHTML = html;
+            
+            // הוספת מאזיני אירועים לכפתורים
+            document.querySelectorAll('.view-category-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = parseInt(this.getAttribute('data-category-id'));
+                    viewCategory(categoryId);
+                });
+            });
+            
+            document.querySelectorAll('.edit-category-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = parseInt(this.getAttribute('data-category-id'));
+                    editCategory(categoryId);
+                });
+            });
+            
+            document.querySelectorAll('.delete-category-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = parseInt(this.getAttribute('data-category-id'));
+                    deleteCategory(categoryId);
+                });
+            });
+        }
+        
+        // Function to load category tree
+        function loadCategoryTree() {
+            const categoryTree = document.getElementById('categoryTree');
+            
+            // Get root categories
+            const rootCategories = categories.filter(category => category.parent === 0);
+            
+            // Generate tree HTML
+            let html = '<ul class="tree-root">';
+            
+            rootCategories.forEach(rootCategory => {
+                html += generateCategoryTreeItem(rootCategory);
+            });
+            
+            html += '</ul>';
+            
+            categoryTree.innerHTML = html;
+            
+            // Add event listeners for tree toggling
+            const togglers = document.querySelectorAll('.category-tree-toggler');
+            togglers.forEach(toggler => {
+                toggler.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                    const children = this.nextElementSibling;
+                    if (children) {
+                        children.classList.toggle('show');
+                    }
+                });
+            });
+        }
+        
+        // Function to generate category tree item
+        function generateCategoryTreeItem(category) {
+            const children = categories.filter(cat => cat.parent === category.id);
+            const hasChildren = children.length > 0;
+            
+            let html = `
+                <li class="tree-item">
+                    <div class="d-flex align-items-center">
+                        ${hasChildren ? 
+                            `<span class="category-tree-toggler"><i class="fas fa-caret-right"></i></span>` : 
+                            `<span class="category-tree-placeholder"></span>`
+                        }
+                        <span class="ms-2 ${!category.status ? 'text-muted' : ''}">${category.name} (${category.products})</span>
+                    </div>
+            `;
+            
+            if (hasChildren) {
+                html += '<ul class="tree-children">';
+                children.forEach(child => {
+                    html += generateCategoryTreeItem(child);
+                });
+                html += '</ul>';
+            }
+            
+            html += '</li>';
+            
+            return html;
+        }
+        
+        // Function to load parent categories for select dropdown
+        function loadParentCategoriesSelect() {
+            const categoryParent = document.getElementById('categoryParent');
+            const rootCategories = categories.filter(category => category.parent === 0);
+            
+            // Clear options except the first one
+            categoryParent.innerHTML = '<option value="0">ללא (קטגוריה ראשית)</option>';
+            
+            rootCategories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                categoryParent.appendChild(option);
+            });
+        }
+        
+        // Function to view category
+        function viewCategory(categoryId) {
+            const category = categories.find(cat => cat.id === categoryId);
+            if (category) {
+                // פתיחת האתר הראשי עם פרמטר קטגוריה
+                window.open(`../index.html?category=${categoryId}`, '_blank');
+            }
+        }
+        
+        // Function to edit category
+        function editCategory(categoryId) {
+            const category = categories.find(cat => cat.id === categoryId);
+            if (category) {
+                // Set modal title
+                document.querySelector('#categoryModal .modal-title').textContent = 'עריכת קטגוריה';
+                
+                // Set form values
+                document.getElementById('categoryId').value = category.id;
+                document.getElementById('categoryName').value = category.name;
+                document.getElementById('categoryParent').value = category.parent;
+                document.getElementById('categoryDescription').value = category.description;
+                document.getElementById('categoryOrder').value = category.order;
+                document.getElementById('categoryStatus').checked = category.status;
+                
+                // Set image preview if available
+                const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+                const imagePreview = document.getElementById('imagePreview');
+                
+                if (category.image) {
+                    imagePreview.src = category.image;
+                    imagePreviewContainer.classList.remove('d-none');
+                } else {
+                    imagePreviewContainer.classList.add('d-none');
+                }
+                
+                // Show modal
+                const categoryModal = new bootstrap.Modal(document.getElementById('categoryModal'));
+                categoryModal.show();
+            }
+        }
+        
+        // Function to delete category
+        function deleteCategory(categoryId) {
+            const hasChildren = categories.some(cat => cat.parent === categoryId);
+            
+            if (hasChildren) {
+                const confirmDelete = confirm('קטגוריה זו מכילה קטגוריות משנה. האם ברצונך למחוק את הקטגוריה ואת כל קטגוריות המשנה שלה?');
+                if (confirmDelete) {
+                    // מחיקת כל קטגוריות המשנה
+                    const childCategories = categories.filter(cat => cat.parent === categoryId);
+                    for (const child of childCategories) {
+                        // מחיקה רקורסיבית של קטגוריות משנה
+                        deleteSubcategories(child.id);
+                    }
+                    
+                    // מחיקת הקטגוריה עצמה
+                    deleteActualCategory(categoryId);
+                }
+                return;
+            }
+            
+            if (confirm(`האם אתה בטוח שברצונך למחוק את הקטגוריה #${categoryId}?`)) {
+                deleteActualCategory(categoryId);
+            }
+        }
+        
+        // פונקציה חדשה למחיקת קטגוריות משנה באופן רקורסיבי
+        function deleteSubcategories(categoryId) {
+            const childCategories = categories.filter(cat => cat.parent === categoryId);
+            for (const child of childCategories) {
+                deleteSubcategories(child.id);
+            }
+            deleteActualCategory(categoryId);
+        }
+        
+        // פונקציה חדשה למחיקת קטגוריה בפועל
+        function deleteActualCategory(categoryId) {
+            // מחיקת הקטגוריה מהמערך
+            const index = categories.findIndex(cat => cat.id === categoryId);
+            if (index !== -1) {
+                categories.splice(index, 1);
+            }
+            
+            // שמירה ב-localStorage וסנכרון
+            saveCategoriesAndSync();
+            
+            // רענון התצוגה
+            loadCategoriesTable();
+            loadCategoryTree();
+            loadParentCategoriesSelect();
+            
+            // הצגת הודעת הצלחה
+            showToast('קטגוריה נמחקה בהצלחה', 'success');
+        }
+        
+        // פונקציה להצגת הודעות toast
+        function showToast(message, type = 'info') {
+            const toastHTML = `
+                <div class="toast align-items-center text-white bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'danger' ? 'exclamation-circle' : 'info-circle'} me-2"></i>${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            `;
+            
+            // יצירת מיכל toast אם לא קיים
+            let toastContainer = document.querySelector('.toast-container');
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+                document.body.appendChild(toastContainer);
+            }
+            
+            toastContainer.innerHTML += toastHTML;
+            const toastElement = toastContainer.querySelector('.toast:last-child');
+            const toast = new bootstrap.Toast(toastElement, { delay: 3000 });
+            toast.show();
+        }
+        
+        // Handle category image upload
+        document.getElementById('categoryImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById('imagePreview');
+                    imagePreview.src = e.target.result;
+                    document.getElementById('imagePreviewContainer').classList.remove('d-none');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Handle remove image button
+        document.getElementById('removeImageBtn').addEventListener('click', function() {
+            document.getElementById('categoryImage').value = '';
+            document.getElementById('imagePreview').src = '';
+            document.getElementById('imagePreviewContainer').classList.add('d-none');
+        });
+        
+        // Handle expand all button
+        document.getElementById('expandAllBtn').addEventListener('click', function() {
+            const togglers = document.querySelectorAll('.category-tree-toggler');
+            togglers.forEach(toggler => {
+                toggler.classList.add('expanded');
+                const children = toggler.nextElementSibling;
+                if (children && children.classList.contains('tree-children')) {
+                    children.classList.add('show');
+                }
+            });
+        });
+        
+        // Handle collapse all button
+        document.getElementById('collapseAllBtn').addEventListener('click', function() {
+            const togglers = document.querySelectorAll('.category-tree-toggler');
+            togglers.forEach(toggler => {
+                toggler.classList.remove('expanded');
+                const children = toggler.nextElementSibling;
+                if (children && children.classList.contains('tree-children')) {
+                    children.classList.remove('show');
+                }
+            });
+        });
+        
+        // Handle save category button
+        document.getElementById('saveCategoryBtn').addEventListener('click', function() {
+            const form = document.getElementById('categoryForm');
+            if (form.checkValidity()) {
+                const categoryId = document.getElementById('categoryId').value;
+                const isNewCategory = !categoryId;
+                
+                // בדיקה אם מדובר בקטגוריה חדשה
+                if (isNewCategory) {
+                    // יצירת קטגוריה חדשה
+                    const newCategory = {
+                        id: categories.length > 0 ? Math.max(...categories.map(c => c.id)) + 1 : 1,
+                        name: document.getElementById('categoryName').value,
+                        parent: parseInt(document.getElementById('categoryParent').value),
+                        description: document.getElementById('categoryDescription').value,
+                        image: document.getElementById('imagePreview').src || '',
+                        products: 0,
+                        order: parseInt(document.getElementById('categoryOrder').value) || 0,
+                        status: document.getElementById('categoryStatus').checked
+                    };
+                    
+                    categories.push(newCategory);
+                    showToast('קטגוריה נוספה בהצלחה', 'success');
+                    
+                    // שמירה ב-localStorage וסנכרון
+                    saveCategoriesAndSync();
+                } else {
+                    // עריכת קטגוריה קיימת
+                    const category = categories.find(cat => cat.id === parseInt(categoryId));
+                    if (category) {
+                        category.name = document.getElementById('categoryName').value;
+                        category.parent = parseInt(document.getElementById('categoryParent').value);
+                        category.description = document.getElementById('categoryDescription').value;
+                        category.image = document.getElementById('imagePreview').src || '';
+                        category.order = parseInt(document.getElementById('categoryOrder').value) || 0;
+                        category.status = document.getElementById('categoryStatus').checked;
+                    }
+                    showToast('קטגוריה עודכנה בהצלחה', 'success');
+                    
+                    // שמירה ב-localStorage וסנכרון
+                    saveCategoriesAndSync();
+                }
+                
+                // איפוס הטופס לשימוש עתידי
+                resetCategoryForm();
+                
+                // סגירת המודל ע"י Bootstrap
+                const categoryModal = document.getElementById('categoryModal');
+                const modal = bootstrap.Modal.getInstance(categoryModal);
+                
+                // עדכון נתוני הקטגוריות
+                loadCategoriesTable();
+                loadCategoryTree();
+                loadParentCategoriesSelect();
+                
+                // סגירת המודאל בצורה בטוחה
+                modal.hide();
+            } else {
+                form.reportValidity();
+            }
+        });
+        
+        // פונקציה לאיפוס טופס הקטגוריות
+        function resetCategoryForm() {
+            document.getElementById('categoryId').value = '';
+            document.getElementById('categoryForm').reset();
+            document.getElementById('imagePreviewContainer').classList.add('d-none');
+        }
+        
+        // האזנה לאירוע סגירת המודאל
+        const categoryModal = document.getElementById('categoryModal');
+        categoryModal.addEventListener('hidden.bs.modal', function() {
+            // ניקוי שאריות מודאל
+            const modalBackdrops = document.querySelectorAll('.modal-backdrop');
+            modalBackdrops.forEach(backdrop => {
+                backdrop.remove();
+            });
+            
+            // ניקוי סגנונות גוף המסמך
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        });
+        
+        // Initialize custom styles for tree view
+        document.addEventListener('DOMContentLoaded', function() {
+            // טעינת הקטגוריות מה-localStorage
+            loadCategoriesFromStorage();
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                .tree-root, .tree-children {
+                    list-style: none;
+                    padding-right: 0;
+                }
+                
+                .tree-children {
+                    padding-right: 1.5rem;
+                    display: none;
+                }
+                
+                .tree-children.show {
+                    display: block;
+                }
+                
+                .tree-item {
+                    margin-bottom: 0.5rem;
+                }
+                
+                .category-tree-toggler {
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .category-tree-toggler i {
+                    transition: transform 0.2s;
+                }
+                
+                .category-tree-toggler.expanded i {
+                    transform: rotate(90deg);
+                }
+                
+                .category-tree-placeholder {
+                    width: 20px;
+                    display: inline-block;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Load categories data
+            loadCategoriesTable();
+            loadCategoryTree();
+            loadParentCategoriesSelect();
+            
+            // מניעת שימוש בתכונת aria-hidden במודאל
+            const categoryModal = document.getElementById('categoryModal');
+            
+            // מוודא שתכונת aria-hidden מוסרת בכל מצב
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
+                        categoryModal.removeAttribute('aria-hidden');
+                    }
+                });
+            });
+            
+            observer.observe(categoryModal, { attributes: true });
+            
+            // מסיר את התכונה כבר בטעינה
+            categoryModal.removeAttribute('aria-hidden');
+        });
+    </script>
+</body>
+</html>

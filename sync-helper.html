@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדיה פרינט - סנכרון נתונים</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #0d6efd;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #e9f5ff;
+            border-right: 4px solid #0d6efd;
+        }
+        .log {
+            text-align: right;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .log-entry {
+            margin-bottom: 5px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .success {
+            color: #198754;
+        }
+        .error {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>מדיה פרינט - סנכרון נתונים</h1>
+        <div class="status">
+            מערכת הסנכרון פעילה. דף זה משמש לסנכרון מוצרים, קטגוריות וסל קניות בין דומיינים שונים.
+        </div>
+        <div class="log" id="syncLog">
+            <!-- יומן סנכרון יוצג כאן -->
+        </div>
+    </div>
+
+    <script>
+        // רשימת דומיינים מורשים
+        const allowedDomains = [
+            'http://localhost:8000',
+            'http://localhost:8080',
+            'http://127.0.0.1:8000',
+            'http://127.0.0.1:8080',
+            'http://127.0.0.1:60898'
+        ];
+
+        // פונקציה להוספת רשומה ליומן
+        function addLogEntry(message, type = 'info') {
+            const logContainer = document.getElementById('syncLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logContainer.prepend(entry);
+        }
+
+        // האזנה להודעות מחלונות אחרים
+        window.addEventListener('message', function(event) {
+            // בדיקה שהמקור מורשה
+            if (allowedDomains.includes(event.origin)) {
+                const data = event.data;
+                
+                // בדיקה אם ההודעה מכילה מוצרים
+                if (data && data.type === 'sync_products' && data.products) {
+                    try {
+                        // בדיקה האם יש צורך בעדכון
+                        const currentTimestamp = localStorage.getItem('productsUpdatedTimestamp');
+                        
+                        // רק אם התאריך שהתקבל חדש יותר או אם אין תאריך קיים - נעדכן
+                        if (!currentTimestamp || parseInt(data.timestamp) > parseInt(currentTimestamp)) {
+                            // שמירת המוצרים ב-localStorage
+                            localStorage.setItem('products', data.products);
+                            localStorage.setItem('productsUpdatedTimestamp', data.timestamp);
+                            
+                            addLogEntry(`סנכרון מוצרים התקבל מ-${event.origin}`, 'success');
+                        } else {
+                            addLogEntry(`דילוג על סנכרון מוצרים מ-${event.origin} - המידע המקומי עדכני יותר`, 'info');
+                        }
+                        
+                        // שליחת אישור למקור בכל מקרה
+                        event.source.postMessage({
+                            type: 'syncProductsConfirmation',
+                            status: 'success'
+                        }, event.origin);
+                    } catch (error) {
+                        // שליחת שגיאה למקור
+                        event.source.postMessage({
+                            type: 'syncProductsConfirmation',
+                            status: 'error',
+                            message: error.message
+                        }, event.origin);
+                        
+                        addLogEntry(`שגיאה בסנכרון מוצרים: ${error.message}`, 'error');
+                    }
+                }
+                
+                // בדיקה אם ההודעה מכילה קטגוריות
+                if (data && data.action === 'sync_categories' && data.categories) {
+                    try {
+                        // שמירת הקטגוריות ב-localStorage
+                        localStorage.setItem('mediaprint_categories', JSON.stringify(data.categories));
+                        
+                        // שליחת אישור למקור
+                        event.source.postMessage({
+                            action: 'sync_categories_confirmation',
+                            status: 'success'
+                        }, event.origin);
+                        
+                        addLogEntry(`סנכרון קטגוריות התקבל מ-${event.origin}`, 'success');
+                    } catch (error) {
+                        // שליחת שגיאה למקור
+                        event.source.postMessage({
+                            action: 'sync_categories_confirmation',
+                            status: 'error',
+                            message: error.message
+                        }, event.origin);
+                        
+                        addLogEntry(`שגיאה בסנכרון קטגוריות: ${error.message}`, 'error');
+                    }
+                }
+                
+                // בדיקה אם ההודעה מכילה סל קניות
+                if (data && data.type === 'syncCart' && data.cart) {
+                    try {
+                        // שמירת סל הקניות ב-localStorage
+                        localStorage.setItem('cart', data.cart);
+                        
+                        // שליחת אישור למקור
+                        event.source.postMessage({
+                            type: 'syncCartConfirmation',
+                            status: 'success'
+                        }, event.origin);
+                        
+                        addLogEntry(`סנכרון סל קניות התקבל מ-${event.origin}`, 'success');
+                    } catch (error) {
+                        // שליחת שגיאה למקור
+                        event.source.postMessage({
+                            type: 'syncCartConfirmation',
+                            status: 'error',
+                            message: error.message
+                        }, event.origin);
+                        
+                        addLogEntry(`שגיאה בסנכרון סל קניות: ${error.message}`, 'error');
+                    }
+                }
+            } else {
+                addLogEntry(`נדחתה בקשת סנכרון מדומיין לא מורשה: ${event.origin}`, 'error');
+            }
+        });
+
+        // הודעה בטעינת הדף
+        addLogEntry('מערכת הסנכרון הופעלה בהצלחה');
+    </script>
+</body>
+</html>

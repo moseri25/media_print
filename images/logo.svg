@@ -1,0 +1,10 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M30 10H10V50H30V10Z" fill="#0056b3"/>
+  <path d="M60 10H40V50H60V10Z" fill="#0056b3"/>
+  <path d="M90 10H70V30H90V10Z" fill="#0056b3"/>
+  <path d="M120 30H100V50H120V30Z" fill="#0056b3"/>
+  <path d="M150 10H130V50H150V10Z" fill="#0056b3"/>
+  <path d="M180 10H160V50H180V10Z" fill="#0056b3"/>
+  <text x="20" y="35" font-family="Arial" font-weight="bold" font-size="18" fill="white">מדיה פרינט</text>
+  <text x="100" y="45" font-family="Arial" font-size="12" fill="#0056b3">שילוט ומיתוג</text>
+</svg>

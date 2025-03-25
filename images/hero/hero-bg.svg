@@ -1,0 +1,30 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#0056b3"/>
+  <rect x="200" y="200" width="400" height="300" fill="#ffffff" fill-opacity="0.1"/>
+  <rect x="700" y="300" width="600" height="400" fill="#ffffff" fill-opacity="0.1"/>
+  <rect x="1400" y="200" width="300" height="500" fill="#ffffff" fill-opacity="0.1"/>
+  <rect x="300" y="600" width="500" height="300" fill="#ffffff" fill-opacity="0.1"/>
+  <rect x="900" y="800" width="700" height="200" fill="#ffffff" fill-opacity="0.1"/>
+  
+  <!-- Printing machine silhouette -->
+  <rect x="300" y="300" width="300" height="200" rx="10" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="350" y="350" width="200" height="100" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+  <rect x="400" y="400" width="100" height="30" rx="5" fill="#ffffff" fill-opacity="0.4"/>
+  
+  <!-- Signage elements -->
+  <rect x="800" y="400" width="400" height="100" rx="10" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="850" y="460" font-family="Arial" font-size="40" fill="white">מדיה פרינט</text>
+  
+  <!-- People silhouettes -->
+  <circle cx="1500" cy="400" r="50" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="1480" y="450" width="40" height="100" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="1460" y="550" width="80" height="150" fill="#ffffff" fill-opacity="0.2"/>
+  
+  <circle cx="1600" cy="450" r="40" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="1585" y="490" width="30" height="80" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="1570" y="570" width="60" height="120" fill="#ffffff" fill-opacity="0.2"/>
+  
+  <!-- Text overlay -->
+  <text x="960" y="200" text-anchor="middle" font-family="Arial" font-size="80" font-weight="bold" fill="white">מדיה פרינט</text>
+  <text x="960" y="280" text-anchor="middle" font-family="Arial" font-size="40" fill="white">שילוט ומיתוג מקצועי לעסקים</text>
+</svg>

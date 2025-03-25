@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דוחות | מדיה פרינט</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/Chart.min.css" rel="stylesheet">
+    
+    <!-- Main CSS File -->
+    <link href="css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-print me-2"></i> מדיה פרינט
+                </a>
+                
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">התראות</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart text-primary me-2"></i> הזמנה חדשה התקבלה</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user text-success me-2"></i> לקוח חדש נרשם</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle text-warning me-2"></i> מוצר אזל מהמלאי</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">צפה בכל ההתראות</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown ms-3">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                            <span class="d-none d-md-inline">מנהל</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> פרופיל</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> הגדרות</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> התנתק</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>לוח בקרה</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">
+                    <i class="fas fa-box"></i>
+                    <span>מוצרים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>הזמנות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="customers.html">
+                    <i class="fas fa-users"></i>
+                    <span>לקוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="categories.html">
+                    <i class="fas fa-tags"></i>
+                    <span>קטגוריות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="coupons.html">
+                    <i class="fas fa-percent"></i>
+                    <span>קופונים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="reports.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>דוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>הגדרות</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="../index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>צפה באתר</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Sidebar Backdrop -->
+    <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="container-fluid">
+            <!-- Page Title -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="page-title">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>דוחות וסטטיסטיקות</span>
+                </h1>
+                
+                <div>
+                    <div class="btn-group">
+                        <button class="admin-btn admin-btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-file-export"></i>
+                            <span>ייצא דוח</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-excel me-2"></i> ייצא לאקסל</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-pdf me-2"></i> ייצא ל-PDF</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-csv me-2"></i> ייצא ל-CSV</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="admin-btn admin-btn-primary ms-2" id="printReportBtn">
+                        <i class="fas fa-print"></i>
+                        <span>הדפס דוח</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Date Range Filter -->
+            <div class="admin-card fade-in mb-4">
+                <div class="admin-card-body">
+                    <div class="row align-items-end">
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <label for="reportType" class="form-label">סוג דוח</label>
+                            <select class="form-select" id="reportType">
+                                <option value="sales">מכירות</option>
+                                <option value="customers">לקוחות</option>
+                                <option value="products">מוצרים</option>
+                                <option value="inventory">מלאי</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <label for="datePresets" class="form-label">טווח תאריכים</label>
+                            <select class="form-select" id="datePresets">
+                                <option value="today">היום</option>
+                                <option value="yesterday">אתמול</option>
+                                <option value="last7days" selected>7 ימים אחרונים</option>
+                                <option value="last30days">30 ימים אחרונים</option>
+                                <option value="thisMonth">החודש הנוכחי</option>
+                                <option value="lastMonth">החודש הקודם</option>
+                                <option value="custom">טווח מותאם אישית</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <label for="startDate" class="form-label">מתאריך</label>
+                            <input type="date" class="form-control" id="startDate">
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <label for="endDate" class="form-label">עד תאריך</label>
+                            <input type="date" class="form-control" id="endDate">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="admin-btn admin-btn-primary w-100" id="applyReportFiltersBtn">
+                                <i class="fas fa-search"></i>
+                                <span>הצג דוח</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Reporting Dashboard will be loaded here -->
+            <div id="reportContent">
+                <!-- Sales Report (Default) -->
+                <div id="salesReport" class="report-section">
+                    <!-- Sales Summary Cards -->
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">סה"כ מכירות</h6>
+                                            <h4 class="mb-0 fw-bold">₪24,632</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-shekel-sign"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 12.5%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">סה"כ הזמנות</h6>
+                                            <h4 class="mb-0 fw-bold">58</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 8.2%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">ממוצע להזמנה</h6>
+                                            <h4 class="mb-0 fw-bold">₪424.7</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-calculator"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-danger">
+                                            <i class="fas fa-arrow-down"></i> 3.8%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">שיעור המרה</h6>
+                                            <h4 class="mb-0 fw-bold">4.2%</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 1.5%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sales Chart -->
+                    <div class="admin-card fade-in mb-4">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-chart-line me-2"></i>
+                                מגמת מכירות
+                            </h5>
+                        </div>
+                        <div class="admin-card-body">
+                            <canvas id="salesChart" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Products and Payment Methods -->
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-header">
+                                    <h5>
+                                        <i class="fas fa-box me-2"></i>
+                                        מוצרים מובילים
+                                    </h5>
+                                </div>
+                                <div class="admin-card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table admin-table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>מוצר</th>
+                                                    <th class="text-center">כמות שנמכרה</th>
+                                                    <th class="text-end">הכנסות</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>כרטיסי ביקור איכותיים</td>
+                                                    <td class="text-center">142</td>
+                                                    <td class="text-end">₪4,260</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>פליירים A5 דו-צדדי</td>
+                                                    <td class="text-center">98</td>
+                                                    <td class="text-end">₪3,920</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>רול-אפ סטנדרטי</td>
+                                                    <td class="text-center">24</td>
+                                                    <td class="text-end">₪3,600</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>כרזות ברזנט</td>
+                                                    <td class="text-center">18</td>
+                                                    <td class="text-end">₪2,880</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>חולצות מודפסות</td>
+                                                    <td class="text-center">32</td>
+                                                    <td class="text-end">₪2,560</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-header">
+                                    <h5>
+                                        <i class="fas fa-credit-card me-2"></i>
+                                        אמצעי תשלום
+                                    </h5>
+                                </div>
+                                <div class="admin-card-body">
+                                    <canvas id="paymentMethodsChart" height="260"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customers Report -->
+                <div id="customersReport" class="report-section" style="display: none;">
+                    <!-- Customer Summary Cards -->
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">סה"כ לקוחות</h6>
+                                            <h4 class="mb-0 fw-bold">412</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 5.1%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">לקוחות חדשים</h6>
+                                            <h4 class="mb-0 fw-bold">28</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 12.8%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">ערך לקוח ממוצע</h6>
+                                            <h4 class="mb-0 fw-bold">₪835</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-coins"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 2.3%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">שיעור חזרה</h6>
+                                            <h4 class="mb-0 fw-bold">38.5%</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-redo"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 3.2%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Customer Growth Chart -->
+                    <div class="admin-card fade-in mb-4">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-user-chart me-2"></i>
+                                גידול במספר הלקוחות
+                            </h5>
+                        </div>
+                        <div class="admin-card-body">
+                            <canvas id="customerGrowthChart" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Customers -->
+                    <div class="admin-card fade-in">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-crown me-2"></i>
+                                לקוחות מובילים
+                            </h5>
+                        </div>
+                        <div class="admin-card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table admin-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>לקוח</th>
+                                            <th class="text-center">הזמנות</th>
+                                            <th class="text-center">מוצרים</th>
+                                            <th class="text-end">סה"כ רכישות</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-bold">משה ישראלי</span>
+                                                    <span class="badge bg-primary rounded-pill ms-2">VIP</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">12</td>
+                                            <td class="text-center">36</td>
+                                            <td class="text-end">₪4,850</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-bold">סופר פרינט בע"מ</span>
+                                                    <span class="badge bg-success rounded-pill ms-2">עסקי</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">8</td>
+                                            <td class="text-center">24</td>
+                                            <td class="text-end">₪3,920</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-bold">רונית כהן</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">7</td>
+                                            <td class="text-center">15</td>
+                                            <td class="text-end">₪2,780</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-bold">משרד פרסום אלפא</span>
+                                                    <span class="badge bg-success rounded-pill ms-2">עסקי</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">5</td>
+                                            <td class="text-center">18</td>
+                                            <td class="text-end">₪2,450</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="fw-bold">יוסי לוי</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">4</td>
+                                            <td class="text-center">12</td>
+                                            <td class="text-end">₪1,950</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Report -->
+                <div id="productsReport" class="report-section" style="display: none;">
+                    <!-- Products Summary Cards -->
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">סה"כ מוצרים</h6>
+                                            <h4 class="mb-0 fw-bold">156</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-boxes"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 8.3%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">מוצרים פעילים</h6>
+                                            <h4 class="mb-0 fw-bold">142</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 5.2%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">קטגוריות</h6>
+                                            <h4 class="mb-0 fw-bold">18</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-tags"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-muted">
+                                            <i class="fas fa-minus"></i> 0%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">מוצרים חדשים</h6>
+                                            <h4 class="mb-0 fw-bold">12</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 20%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Categories Chart -->
+                    <div class="admin-card fade-in mb-4">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-pie-chart me-2"></i>
+                                התפלגות מוצרים לפי קטגוריות
+                            </h5>
+                        </div>
+                        <div class="admin-card-body">
+                            <canvas id="categoriesChart" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Performing Products -->
+                    <div class="admin-card fade-in">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-star me-2"></i>
+                                ביצועי מוצרים מובילים
+                            </h5>
+                        </div>
+                        <div class="admin-card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table admin-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>מוצר</th>
+                                            <th>קטגוריה</th>
+                                            <th class="text-center">צפיות</th>
+                                            <th class="text-center">המרות</th>
+                                            <th class="text-center">אחוז המרה</th>
+                                            <th class="text-end">הכנסות</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>כרטיסי ביקור איכותיים</td>
+                                            <td>מוצרי דפוס</td>
+                                            <td class="text-center">845</td>
+                                            <td class="text-center">142</td>
+                                            <td class="text-center">16.8%</td>
+                                            <td class="text-end">₪4,260</td>
+                                        </tr>
+                                        <tr>
+                                            <td>פליירים A5 דו-צדדי</td>
+                                            <td>מוצרי דפוס</td>
+                                            <td class="text-center">654</td>
+                                            <td class="text-center">98</td>
+                                            <td class="text-center">15.0%</td>
+                                            <td class="text-end">₪3,920</td>
+                                        </tr>
+                                        <tr>
+                                            <td>רול-אפ סטנדרטי</td>
+                                            <td>שילוט ודגלים</td>
+                                            <td class="text-center">215</td>
+                                            <td class="text-center">24</td>
+                                            <td class="text-center">11.2%</td>
+                                            <td class="text-end">₪3,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>כרזות ברזנט</td>
+                                            <td>שילוט חוץ</td>
+                                            <td class="text-center">187</td>
+                                            <td class="text-center">18</td>
+                                            <td class="text-center">9.6%</td>
+                                            <td class="text-end">₪2,880</td>
+                                        </tr>
+                                        <tr>
+                                            <td>חולצות מודפסות</td>
+                                            <td>מוצרי קד"מ</td>
+                                            <td class="text-center">386</td>
+                                            <td class="text-center">32</td>
+                                            <td class="text-center">8.3%</td>
+                                            <td class="text-end">₪2,560</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Inventory Report -->
+                <div id="inventoryReport" class="report-section" style="display: none;">
+                    <!-- Inventory Summary Cards -->
+                    <div class="row mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">ערך מלאי</h6>
+                                            <h4 class="mb-0 fw-bold">₪34,875</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 4.2%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">מלאי פריטים</h6>
+                                            <h4 class="mb-0 fw-bold">2,458</h4>
+                                        </div>
+                                        <div class="admin-stat-icon">
+                                            <i class="fas fa-cube"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 2.8%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">מוצרים במלאי נמוך</h6>
+                                            <h4 class="mb-0 fw-bold">8</h4>
+                                        </div>
+                                        <div class="admin-stat-icon admin-stat-icon-warning">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-danger">
+                                            <i class="fas fa-arrow-up"></i> 14.3%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="admin-card fade-in h-100">
+                                <div class="admin-card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-1">מוצרים אזלו מהמלאי</h6>
+                                            <h4 class="mb-0 fw-bold">3</h4>
+                                        </div>
+                                        <div class="admin-stat-icon admin-stat-icon-danger">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-muted">
+                                            <i class="fas fa-minus"></i> 0%
+                                        </span> 
+                                        <span class="text-muted small">מהתקופה הקודמת</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Inventory Status Chart -->
+                    <div class="admin-card fade-in mb-4">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-chart-line me-2"></i>
+                                תנועות מלאי
+                            </h5>
+                        </div>
+                        <div class="admin-card-body">
+                            <canvas id="inventoryMovementChart" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Products with Low Stock -->
+                    <div class="admin-card fade-in">
+                        <div class="admin-card-header">
+                            <h5>
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                מוצרים במלאי נמוך או חסרים
+                            </h5>
+                        </div>
+                        <div class="admin-card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table admin-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>מוצר</th>
+                                            <th>קטגוריה</th>
+                                            <th class="text-center">מלאי נוכחי</th>
+                                            <th class="text-center">סף מינימום</th>
+                                            <th class="text-center">מלאי בהזמנה</th>
+                                            <th class="text-end">פעולות</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>נייר צילום A4</td>
+                                            <td>ציוד משרדי</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-danger">0</span>
+                                            </td>
+                                            <td class="text-center">50</td>
+                                            <td class="text-center">100</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-shopping-cart me-1"></i> הזמן
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>דיו שחור למדפסת HP</td>
+                                            <td>מתכלים</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-danger">0</span>
+                                            </td>
+                                            <td class="text-center">10</td>
+                                            <td class="text-center">15</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-shopping-cart me-1"></i> הזמן
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>נייר פוטו מבריק</td>
+                                            <td>ציוד משרדי</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-danger">0</span>
+                                            </td>
+                                            <td class="text-center">20</td>
+                                            <td class="text-center">0</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-warning">
+                                                    <i class="fas fa-exclamation-triangle me-1"></i> דחוף
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>מדבקות לייזר שקופות</td>
+                                            <td>מדבקות</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-warning">5</span>
+                                            </td>
+                                            <td class="text-center">20</td>
+                                            <td class="text-center">30</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-shopping-cart me-1"></i> הזמן
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>קרטון כריכה 250 גרם</td>
+                                            <td>ציוד משרדי</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-warning">8</span>
+                                            </td>
+                                            <td class="text-center">25</td>
+                                            <td class="text-center">25</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-shopping-cart me-1"></i> הזמן
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=972509625398&text=שלום,%20אני%20מעוניין%20לקבל%20פרטים%20נוספים" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Main JS File -->
+    <script>
+        // DOM Elements
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('adminSidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Toggle sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            sidebarBackdrop.classList.toggle('show');
+        });
+        
+        // Close sidebar when clicking on backdrop
+        sidebarBackdrop.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            sidebarBackdrop.classList.remove('show');
+        });
+        
+        // Handle logout
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Clear auth token or session
+            localStorage.removeItem('adminLoggedIn');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+        
+        // Check login status
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Check login status on page load
+        checkLoginStatus();
+        
+        // Initialize date fields
+        function initDateRange() {
+            const today = new Date();
+            const endDateInput = document.getElementById('endDate');
+            endDateInput.valueAsDate = today;
+            
+            // Set start date to 7 days ago
+            const startDate = new Date();
+            startDate.setDate(today.getDate() - 7);
+            const startDateInput = document.getElementById('startDate');
+            startDateInput.valueAsDate = startDate;
+            
+            // Initially disable custom date range
+            startDateInput.disabled = true;
+            endDateInput.disabled = true;
+        }
+        
+        // Handle date preset change
+        document.getElementById('datePresets').addEventListener('change', function() {
+            const startDateInput = document.getElementById('startDate');
+            const endDateInput = document.getElementById('endDate');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (this.value === 'custom') {
+                startDateInput.disabled = false;
+                endDateInput.disabled = false;
+                return;
+            }
+            
+            startDateInput.disabled = true;
+            endDateInput.disabled = true;
+            
+            // Set end date to today for most options
+            endDateInput.valueAsDate = today;
+            
+            // Calculate start date based on selection
+            let startDate = new Date(today);
+            
+            switch(this.value) {
+                case 'today':
+                    startDate = new Date(today);
+                    break;
+                case 'yesterday':
+                    startDate.setDate(today.getDate() - 1);
+                    endDateInput.valueAsDate = startDate;
+                    break;
+                case 'last7days':
+                    startDate.setDate(today.getDate() - 7);
+                    break;
+                case 'last30days':
+                    startDate.setDate(today.getDate() - 30);
+                    break;
+                case 'thisMonth':
+                    startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+                    break;
+                case 'lastMonth':
+                    startDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+                    endDateInput.valueAsDate = new Date(today.getFullYear(), today.getMonth(), 0);
+                    break;
+            }
+            
+            startDateInput.valueAsDate = startDate;
+        });
+        
+        // Handle report type change
+        document.getElementById('reportType').addEventListener('change', function() {
+            loadReportData();
+        });
+        
+        // Handle apply filters button
+        document.getElementById('applyReportFiltersBtn').addEventListener('click', function() {
+            loadReportData();
+        });
+        
+        // Handle print report button
+        document.getElementById('printReportBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initDateRange();
+            loadReportData();
+        });
+        
+        // Delete category function
+        function deleteCategory(categoryId) {
+            if (confirm('האם אתה בטוח שברצונך למחוק קטגוריה זו?')) {
+                // בסביבת אמת כאן היה מתבצע קריאת API למחיקת הקטגוריה
+                // לצורך ההדגמה - הסרה מהממשק
+                const categoryElement = document.querySelector(`[data-category-id="${categoryId}"]`);
+                if (categoryElement) {
+                    categoryElement.remove();
+                    
+                    // הצגת הודעת הצלחה
+                    const toastHTML = `
+                        <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    <i class="fas fa-check-circle me-2"></i>הקטגוריה נמחקה בהצלחה
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // הוספת toast container אם לא קיים
+                    let toastContainer = document.querySelector('.toast-container');
+                    if (!toastContainer) {
+                        toastContainer = document.createElement('div');
+                        toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+                        document.body.appendChild(toastContainer);
+                    }
+                    
+                    toastContainer.innerHTML += toastHTML;
+                    const toastElement = toastContainer.querySelector('.toast:last-child');
+                    const toast = new bootstrap.Toast(toastElement, { delay: 3000 });
+                    toast.show();
+                }
+            }
+        }
+        
+        // Load report data based on selected options
+        function loadReportData() {
+            const reportType = document.getElementById('reportType').value;
+            const reportSections = document.querySelectorAll('.report-section');
+            
+            // Hide all report sections
+            reportSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected report section
+            document.getElementById(`${reportType}Report`).style.display = 'block';
+            
+            // Initialize charts for visible report
+            initializeCharts(reportType);
+        }
+        
+        // Initialize charts based on report type
+        function initializeCharts(reportType) {
+            // Clear existing charts
+            if (window.reportCharts) {
+                Object.values(window.reportCharts).forEach(chart => {
+                    if (chart) chart.destroy();
+                });
+            }
+            
+            // Initialize charts object if not exists
+            window.reportCharts = window.reportCharts || {};
+            
+            // Initialize specific charts based on report type
+            switch(reportType) {
+                case 'sales':
+                    initSalesCharts();
+                    break;
+                case 'customers':
+                    initCustomerCharts();
+                    break;
+                case 'products':
+                    initProductCharts();
+                    break;
+                case 'inventory':
+                    initInventoryCharts();
+                    break;
+            }
+        }
+        
+        // Initialize sales report charts
+        function initSalesCharts() {
+            // Sales Chart
+            const salesChartCtx = document.getElementById('salesChart').getContext('2d');
+            window.reportCharts.salesChart = new Chart(salesChartCtx, {
+                type: 'line',
+                data: {
+                    labels: ['יום א\'', 'יום ב\'', 'יום ג\'', 'יום ד\'', 'יום ה\'', 'יום ו\'', 'שבת'],
+                    datasets: [{
+                        label: 'מכירות',
+                        data: [3200, 4100, 2900, 5400, 4800, 3100, 1200],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: 'Heebo'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `₪${context.raw}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return `₪${value}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Payment Methods Chart
+            const paymentMethodsCtx = document.getElementById('paymentMethodsChart').getContext('2d');
+            window.reportCharts.paymentMethodsChart = new Chart(paymentMethodsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['כרטיס אשראי', 'העברה בנקאית', 'ביט/פייבוקס', 'מזומן'],
+                    datasets: [{
+                        data: [68, 15, 12, 5],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(75, 192, 192, 0.7)',
+                            'rgba(153, 102, 255, 0.7)',
+                            'rgba(255, 159, 64, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: 'Heebo'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize customer report charts
+        function initCustomerCharts() {
+            // Customer Growth Chart
+            const customerGrowthCtx = document.getElementById('customerGrowthChart').getContext('2d');
+            window.reportCharts.customerGrowthChart = new Chart(customerGrowthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני'],
+                    datasets: [{
+                        label: 'לקוחות חדשים',
+                        data: [22, 18, 25, 20, 28, 32],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: 'Heebo'
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize product report charts
+        function initProductCharts() {
+            // Categories Chart
+            const categoriesCtx = document.getElementById('categoriesChart').getContext('2d');
+            window.reportCharts.categoriesChart = new Chart(categoriesCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['מוצרי דפוס', 'שילוט חוץ', 'שילוט ודגלים', 'מוצרי קד"מ', 'ציוד משרדי'],
+                    datasets: [{
+                        data: [45, 25, 15, 10, 5],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(255, 205, 86, 0.7)',
+                            'rgba(75, 192, 192, 0.7)',
+                            'rgba(153, 102, 255, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                font: {
+                                    family: 'Heebo'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize inventory report charts
+        function initInventoryCharts() {
+            // Inventory Movement Chart
+            const inventoryMovementCtx = document.getElementById('inventoryMovementChart').getContext('2d');
+            window.reportCharts.inventoryMovementChart = new Chart(inventoryMovementCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['יום א\'', 'יום ב\'', 'יום ג\'', 'יום ד\'', 'יום ה\'', 'יום ו\'', 'שבת'],
+                    datasets: [
+                        {
+                            label: 'כניסות למלאי',
+                            data: [15, 32, 5, 10, 45, 8, 0],
+                            backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'יציאות מהמלאי',
+                            data: [12, 25, 18, 22, 16, 10, 5],
+                            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: 'Heebo'
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize when the document is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date range picker
+            $('#reportDateRange').daterangepicker({
+                startDate: moment().subtract(7, 'days'),
+                endDate: moment(),
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    applyLabel: 'אישור',
+                    cancelLabel: 'ביטול',
+                    customRangeLabel: 'טווח מותאם אישית',
+                    daysOfWeek: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'],
+                    monthNames: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+                    firstDay: 0
+                },
+                ranges: {
+                    'היום': [moment(), moment()],
+                    'אתמול': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'שבוע אחרון': [moment().subtract(6, 'days'), moment()],
+                    'חודש אחרון': [moment().subtract(29, 'days'), moment()],
+                    'החודש הזה': [moment().startOf('month'), moment().endOf('month')],
+                    'החודש הקודם': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'left',
+                direction: 'rtl'
+            }, function(start, end, label) {
+                // Load reports when date range changes
+                loadReportData();
+            });
+            
+            // Event listeners for report filters
+            document.getElementById('reportType').addEventListener('change', loadReportData);
+            document.getElementById('comparisonPeriod').addEventListener('change', loadReportData);
+            
+            // Set default active sidebar item
+            setActiveSidebarItem('reports');
+            
+            // Load initial report data (default: sales report)
+            loadReportData();
+        });
+        
+        // Set active sidebar item
+        function setActiveSidebarItem(itemId) {
+            const sidebarItems = document.querySelectorAll('.admin-sidebar-item');
+            sidebarItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.id === itemId + 'Item') {
+                    item.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

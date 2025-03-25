@@ -1,0 +1,33 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Business cards layout -->
+  <g transform="translate(150, 100) rotate(10)">
+    <rect width="200" height="120" fill="#0056b3"/>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="white">מדיה פרינט</text>
+    <text x="100" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="white">שילוט ומיתוג מקצועי</text>
+    <line x1="50" y1="100" x2="150" y2="100" stroke="white" stroke-width="1"/>
+    <text x="100" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="white">טל: 03-1234567</text>
+  </g>
+  
+  <g transform="translate(200, 150) rotate(-5)">
+    <rect width="200" height="120" fill="#ffffff"/>
+    <rect x="0" y="0" width="200" height="120" stroke="#0056b3" stroke-width="2" fill="none"/>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0056b3">מדיה פרינט</text>
+    <text x="100" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#0056b3">שילוט ומיתוג מקצועי</text>
+    <line x1="50" y1="100" x2="150" y2="100" stroke="#0056b3" stroke-width="1"/>
+    <text x="100" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#0056b3">טל: 03-1234567</text>
+  </g>
+  
+  <g transform="translate(250, 200) rotate(5)">
+    <rect width="200" height="120" fill="#f8f9fa"/>
+    <rect x="0" y="0" width="200" height="120" stroke="#0056b3" stroke-width="2" fill="none"/>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0056b3">מדיה פרינט</text>
+    <text x="100" y="85" text-anchor="middle" font-family="Arial" font-size="12" fill="#0056b3">שילוט ומיתוג מקצועי</text>
+    <line x1="50" y1="100" x2="150" y2="100" stroke="#0056b3" stroke-width="1"/>
+    <text x="100" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#0056b3">טל: 03-1234567</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="300" y="380" text-anchor="middle" font-family="Arial" font-size="18" fill="#0056b3">כרטיסי ביקור</text>
+</svg>

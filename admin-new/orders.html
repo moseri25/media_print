@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול הזמנות | מדיה פרינט</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Main CSS File -->
+    <link href="css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-print me-2"></i> מדיה פרינט
+                </a>
+                
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header">התראות</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart text-primary me-2"></i> הזמנה חדשה התקבלה</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user text-success me-2"></i> לקוח חדש נרשם</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle text-warning me-2"></i> מוצר אזל מהמלאי</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="#">צפה בכל ההתראות</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown ms-3">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                            <span class="d-none d-md-inline">מנהל</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> פרופיל</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> הגדרות</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> התנתק</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="adminSidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>לוח בקרה</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">
+                    <i class="fas fa-box"></i>
+                    <span>מוצרים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>הזמנות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="customers.html">
+                    <i class="fas fa-users"></i>
+                    <span>לקוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="categories.html">
+                    <i class="fas fa-tags"></i>
+                    <span>קטגוריות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="coupons.html">
+                    <i class="fas fa-percent"></i>
+                    <span>קופונים</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>דוחות</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>הגדרות</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <a class="nav-link" href="../index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>צפה באתר</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Sidebar Backdrop -->
+    <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="container-fluid">
+            <!-- Page Title & Actions -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="page-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>ניהול הזמנות</span>
+                </h1>
+                
+                <div>
+                    <button class="admin-btn admin-btn-primary me-2" id="exportOrdersBtn">
+                        <i class="fas fa-file-export"></i>
+                        <span>ייצוא הזמנות</span>
+                    </button>
+                    <button class="admin-btn admin-btn-outline-primary" id="printOrdersBtn">
+                        <i class="fas fa-print"></i>
+                        <span>הדפסה</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="admin-card fade-in mb-4">
+                <div class="admin-card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <label for="orderStatusFilter" class="form-label">סטטוס הזמנה</label>
+                            <select class="form-select" id="orderStatusFilter">
+                                <option value="all">כל הסטטוסים</option>
+                                <option value="pending">ממתינה</option>
+                                <option value="processing">בטיפול</option>
+                                <option value="shipped">נשלחה</option>
+                                <option value="delivered">נמסרה</option>
+                                <option value="cancelled">בוטלה</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <label for="dateRangeFilter" class="form-label">טווח תאריכים</label>
+                            <select class="form-select" id="dateRangeFilter">
+                                <option value="all">כל התאריכים</option>
+                                <option value="today">היום</option>
+                                <option value="week">השבוע האחרון</option>
+                                <option value="month">החודש האחרון</option>
+                                <option value="custom">טווח מותאם אישית</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <label for="searchOrders" class="form-label">חיפוש</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="searchOrders" placeholder="חיפוש לפי מספר הזמנה, שם לקוח או דוא״ל">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="admin-btn admin-btn-primary w-100" id="applyFiltersBtn">
+                                <i class="fas fa-filter"></i>
+                                <span>החל סינון</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orders Table -->
+            <div class="admin-card fade-in">
+                <div class="admin-card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table admin-table mb-0" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th width="5%">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="selectAllOrders">
+                                        </div>
+                                    </th>
+                                    <th width="10%">מס' הזמנה</th>
+                                    <th width="15%">לקוח</th>
+                                    <th width="15%">תאריך</th>
+                                    <th width="10%">סכום</th>
+                                    <th width="10%">סטטוס</th>
+                                    <th width="10%">תשלום</th>
+                                    <th width="10%">שילוח</th>
+                                    <th width="15%" class="text-center">פעולות</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic content will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                            <i class="fas fa-chevron-right me-0"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <i class="fas fa-chevron-left me-0"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=972509625398&text=שלום,%20אני%20מעוניין%20לקבל%20פרטים%20נוספים" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS File -->
+    <script>
+        // DOM Elements
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('adminSidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Toggle sidebar
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            sidebarBackdrop.classList.toggle('show');
+        });
+        
+        // Close sidebar when clicking on backdrop
+        sidebarBackdrop.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            sidebarBackdrop.classList.remove('show');
+        });
+        
+        // Handle logout
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Clear auth token or session
+            localStorage.removeItem('adminLoggedIn');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+        
+        // Check login status
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Check login status on page load
+        checkLoginStatus();
+        
+        // Sample Orders Data
+        const orders = [
+            {
+                id: 'ORD-2025',
+                customer: {
+                    name: 'ישראל ישראלי',
+                    email: 'israel@example.com'
+                },
+                date: '24/03/2025',
+                amount: 1250,
+                status: 'processing',
+                payment: 'completed',
+                shipping: 'pending'
+            },
+            {
+                id: 'ORD-2024',
+                customer: {
+                    name: 'שרה כהן',
+                    email: 'sarah@example.com'
+                },
+                date: '23/03/2025',
+                amount: 950,
+                status: 'pending',
+                payment: 'pending',
+                shipping: 'pending'
+            },
+            {
+                id: 'ORD-2023',
+                customer: {
+                    name: 'דוד לוי',
+                    email: 'david@example.com'
+                },
+                date: '22/03/2025',
+                amount: 2450,
+                status: 'shipped',
+                payment: 'completed',
+                shipping: 'shipped'
+            },
+            {
+                id: 'ORD-2022',
+                customer: {
+                    name: 'רחל אברהם',
+                    email: 'rachel@example.com'
+                },
+                date: '21/03/2025',
+                amount: 1850,
+                status: 'delivered',
+                payment: 'completed',
+                shipping: 'delivered'
+            },
+            {
+                id: 'ORD-2021',
+                customer: {
+                    name: 'יוסף חיים',
+                    email: 'yosef@example.com'
+                },
+                date: '20/03/2025',
+                amount: 750,
+                status: 'cancelled',
+                payment: 'refunded',
+                shipping: 'cancelled'
+            }
+        ];
+        
+        // Function to get status badge
+        function getStatusBadge(status) {
+            const badges = {
+                'pending': '<span class="badge bg-warning">ממתינה</span>',
+                'processing': '<span class="badge bg-info">בטיפול</span>',
+                'shipped': '<span class="badge bg-primary">נשלחה</span>',
+                'delivered': '<span class="badge bg-success">נמסרה</span>',
+                'cancelled': '<span class="badge bg-danger">בוטלה</span>'
+            };
+            
+            return badges[status] || '<span class="badge bg-secondary">לא ידוע</span>';
+        }
+        
+        // Function to get payment status badge
+        function getPaymentBadge(status) {
+            const badges = {
+                'pending': '<span class="badge bg-warning">ממתין</span>',
+                'completed': '<span class="badge bg-success">הושלם</span>',
+                'failed': '<span class="badge bg-danger">נכשל</span>',
+                'refunded': '<span class="badge bg-info">הוחזר</span>'
+            };
+            
+            return badges[status] || '<span class="badge bg-secondary">לא ידוע</span>';
+        }
+        
+        // Function to get shipping status badge
+        function getShippingBadge(status) {
+            const badges = {
+                'pending': '<span class="badge bg-warning">ממתין</span>',
+                'processing': '<span class="badge bg-info">בהכנה</span>',
+                'shipped': '<span class="badge bg-primary">נשלח</span>',
+                'delivered': '<span class="badge bg-success">נמסר</span>',
+                'cancelled': '<span class="badge bg-danger">בוטל</span>'
+            };
+            
+            return badges[status] || '<span class="badge bg-secondary">לא ידוע</span>';
+        }
+        
+        // Function to load orders
+        function loadOrders() {
+            const ordersTable = document.getElementById('ordersTable').getElementsByTagName('tbody')[0];
+            let html = '';
+            
+            orders.forEach(order => {
+                html += `
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="${order.id}">
+                            </div>
+                        </td>
+                        <td>${order.id}</td>
+                        <td>
+                            <div>${order.customer.name}</div>
+                            <small class="text-muted">${order.customer.email}</small>
+                        </td>
+                        <td>${order.date}</td>
+                        <td>₪${order.amount.toLocaleString()}</td>
+                        <td>${getStatusBadge(order.status)}</td>
+                        <td>${getPaymentBadge(order.payment)}</td>
+                        <td>${getShippingBadge(order.shipping)}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-info me-1" onclick="viewOrder('${order.id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-sm btn-primary me-1" onclick="editOrder('${order.id}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteOrder('${order.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            ordersTable.innerHTML = html;
+        }
+        
+        // Function to view order
+        function viewOrder(orderId) {
+            alert(`צפייה בהזמנה ${orderId}`);
+            // Implement view order functionality
+        }
+        
+        // Function to edit order
+        function editOrder(orderId) {
+            alert(`עריכת הזמנה ${orderId}`);
+            // Implement edit order functionality
+        }
+        
+        // Function to delete order
+        function deleteOrder(orderId) {
+            if (confirm(`האם אתה בטוח שברצונך למחוק את ההזמנה ${orderId}?`)) {
+                alert(`הזמנה ${orderId} נמחקה בהצלחה`);
+                // Implement delete order functionality
+            }
+        }
+        
+        // Function to export orders
+        document.getElementById('exportOrdersBtn').addEventListener('click', function() {
+            alert('ייצוא הזמנות');
+            // Implement export functionality
+        });
+        
+        // Function to print orders
+        document.getElementById('printOrdersBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Select all orders
+        document.getElementById('selectAllOrders').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('#ordersTable tbody input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+        
+        // Load orders on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrders();
+        });
+    </script>
+</body>
+</html>
