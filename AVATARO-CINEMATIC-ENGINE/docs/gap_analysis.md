@@ -10,7 +10,7 @@ HeyGen assets were not found on this machine or in this repo.
 | Original Hebrew audio (~68.19 s) | not present | BLOCKED |
 | SRT, 17 segments / transcript | not present | BLOCKED |
 | Wetness B-roll (~8 s) | not present | BLOCKED |
-| FFmpeg 9.0.2 | system has 6.1.1; upstream tag `n9.0.2` (ce8f11b9) exists; source build started in the session container, not yet verified | IN_PROGRESS |
+| FFmpeg 9.0.2 | built from upstream tag `n9.0.2` (946fcce0 per local checkout) into `/opt/ffmpeg-9.0.2` in the session container; verified libx264, aac, libass, harfbuzz, fribidi. Not persisted in git (rebuild per session) | IN_PROGRESS |
 | GPU | none (CPU only, 4 cores, ~15 GB RAM) | limits AI image/video generation |
 | Hebrew fonts | Noto Sans/Serif Hebrew installed via apt; glyph coverage not yet tested | to verify |
 | OpenCV, CairoSVG, OTIO, torch | not installed | to add as needed |
@@ -21,3 +21,8 @@ approximate until re-derived from the SRT and forced alignment. Narration text i
 
 Needed from the operator: the HeyGen MP4, original audio, SRT, transcript, B-roll, and any approved branding.
 Place them under `private_media/` (git-ignored) and run `avataro inspect`.
+
+## Update: avatar and voice feasibility (verified)
+- Presenter still received (1125x2000 portrait). Still only: no talking-head video exists yet.
+- Lip-sync generation needs a GPU model. Sandbox has no GPU and HuggingFace downloads return proxy 403; the curated HF Spaces list has no audio-driven lip-sync Space.
+- Fish Audio Drama 3: 35B MoE (FP8), benchmarked on H200; license is the Fish Audio research/community license (commercial use must be checked). Cannot run on this 15 GB CPU box.

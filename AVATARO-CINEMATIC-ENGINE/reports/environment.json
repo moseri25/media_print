@@ -4,7 +4,7 @@
   "node": "v22.22.0",
   "cpu_count": 4,
   "ram_gb": 15.7,
-  "disk_free_gb": 31.6,
+  "disk_free_gb": 30.5,
   "gpu": "none detected (CPU only)",
   "python_modules": {
     "numpy": true,
@@ -33,14 +33,18 @@
     "required": "9.0.2",
     "found": [
       {
+        "path": "/opt/ffmpeg-9.0.2/bin/ffmpeg",
+        "version": "n9.0.2"
+      },
+      {
         "path": "/usr/bin/ffmpeg",
         "version": "6.1.1-3ubuntu5"
       }
     ],
-    "pinned_available": false,
+    "pinned_available": true,
     "selected": {
-      "path": "/usr/bin/ffmpeg",
-      "version": "6.1.1-3ubuntu5"
+      "path": "/opt/ffmpeg-9.0.2/bin/ffmpeg",
+      "version": "n9.0.2"
     },
     "checks": {
       "libx264": true,
@@ -48,7 +52,7 @@
       "libass": true,
       "harfbuzz": true,
       "fribidi": true,
-      "ffprobe": true
+      "ffprobe": false
     }
   }
 }

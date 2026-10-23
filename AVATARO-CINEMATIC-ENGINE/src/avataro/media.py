@@ -1,11 +1,20 @@
 """Media inspection via ffprobe, plus source-manifest verification (existence, decode, duration)."""
 import json, os, subprocess
+from . import REQUIRED_FFMPEG
 from .env import find_ffmpeg
 
 
-def ffprobe_bin():
+def _tool(name):
+    """Sibling binary of the selected ffmpeg (pinned 9.0.2 build first)."""
     f = find_ffmpeg()
-    return (f[0]["path"].replace("ffmpeg", "ffprobe")) if f else "ffprobe"
+    if not f:
+        return name
+    pinned = next((x for x in f if x["version"].lstrip("n").startswith(REQUIRED_FFMPEG)), f[0])
+    return os.path.join(os.path.dirname(pinned["path"]), name)
+
+
+def ffprobe_bin():
+    return _tool("ffprobe")
 
 
 def probe(path):
@@ -22,7 +31,7 @@ def probe(path):
 
 
 def decode_check(path):
-    r = subprocess.run([ffprobe_bin().replace("ffprobe", "ffmpeg"), "-v", "error", "-i", path, "-f", "null", "-"],
+    r = subprocess.run([_tool("ffmpeg"), "-v", "error", "-i", path, "-f", "null", "-"],
                        capture_output=True, text=True)
     return {"decodes_fully": r.returncode == 0 and not r.stderr.strip(), "stderr": r.stderr.strip()[:500]}
 
