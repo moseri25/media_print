@@ -23,6 +23,6 @@ Needed from the operator: the HeyGen MP4, original audio, SRT, transcript, B-rol
 Place them under `private_media/` (git-ignored) and run `avataro inspect`.
 
 ## Update: avatar and voice feasibility (verified)
-- Presenter still received (1125x2000 portrait). Still only: no talking-head video exists yet.
+- Presenter still received (2160x3840 portrait). Still only: no talking-head video exists yet.
 - Lip-sync generation needs a GPU model. Sandbox has no GPU and HuggingFace downloads return proxy 403; the curated HF Spaces list has no audio-driven lip-sync Space.
 - Fish Audio Drama 3: 35B MoE (FP8), benchmarked on H200; license is the Fish Audio research/community license (commercial use must be checked). Cannot run on this 15 GB CPU box.
