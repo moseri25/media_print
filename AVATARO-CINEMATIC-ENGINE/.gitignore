@@ -1,0 +1,6 @@
+private_media/
+cache/
+output/
+.env
+__pycache__/
+*.egg-info/

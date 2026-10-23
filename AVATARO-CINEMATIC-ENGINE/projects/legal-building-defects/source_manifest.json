@@ -1,0 +1,81 @@
+{
+  "note": "Presence is verified by `avataro inspect`, never assumed.",
+  "sources": [
+    {
+      "id": "presenter_video",
+      "kind": "video",
+      "expected_path": "private_media/heygen_presenter.mp4",
+      "purpose": "HeyGen avatar video; required for lip sync gate",
+      "present": false,
+      "inspection": null
+    },
+    {
+      "id": "original_audio",
+      "kind": "audio",
+      "expected_path": "private_media/original_voice.opus",
+      "purpose": "Original Hebrew voice (~68.19 s); default audio master",
+      "present": true,
+      "inspection": {
+        "ok": true,
+        "duration": 68.1865,
+        "streams": [
+          {
+            "codec_type": "audio",
+            "codec_name": "opus",
+            "width": null,
+            "height": null,
+            "r_frame_rate": "0/0",
+            "sample_rate": "48000",
+            "channels": 1,
+            "pix_fmt": null,
+            "start_time": "0.006500"
+          }
+        ],
+        "decodes_fully": true,
+        "stderr": ""
+      },
+      "note": "uploaded as WhatsApp PTT .opus, mono 48 kHz; EBU R128 -20.2 LUFS, peak +0.3 dBFS (clipping risk, needs review)"
+    },
+    {
+      "id": "srt",
+      "kind": "subtitles",
+      "expected_path": "private_media/subtitles_he.srt",
+      "purpose": "17 Hebrew segments; sentence-level timing only",
+      "present": false,
+      "inspection": null
+    },
+    {
+      "id": "transcript",
+      "kind": "text",
+      "expected_path": "private_media/transcript_he.txt",
+      "purpose": "Full Hebrew transcript",
+      "present": true,
+      "inspection": null,
+      "note": "operator-pasted in chat; verbatim copy, NOT yet verified against audio (no ASR run)"
+    },
+    {
+      "id": "broll_wetness",
+      "kind": "video",
+      "expected_path": "private_media/broll_wetness.mp4",
+      "purpose": "~8 s moving wetness B-roll",
+      "present": false,
+      "inspection": null
+    },
+    {
+      "id": "presenter_stills",
+      "kind": "image",
+      "expected_path": "private_media/presenter_stills/",
+      "purpose": "Presenter still images",
+      "present": false,
+      "inspection": null
+    },
+    {
+      "id": "branding",
+      "kind": "image",
+      "expected_path": "private_media/branding/",
+      "purpose": "Logo / firm name / phone: only if supplied and approved",
+      "present": false,
+      "inspection": null
+    }
+  ]
+}
