@@ -14,8 +14,27 @@
       "kind": "audio",
       "expected_path": "private_media/original_voice.opus",
       "purpose": "Original Hebrew voice (~68.19 s); default audio master",
-      "present": false,
-      "inspection": null
+      "present": true,
+      "inspection": {
+        "ok": true,
+        "duration": 68.1865,
+        "streams": [
+          {
+            "codec_type": "audio",
+            "codec_name": "opus",
+            "width": null,
+            "height": null,
+            "r_frame_rate": "0/0",
+            "sample_rate": "48000",
+            "channels": 1,
+            "pix_fmt": null,
+            "start_time": "0.006500"
+          }
+        ],
+        "decodes_fully": true,
+        "stderr": ""
+      },
+      "note": "uploaded as WhatsApp PTT .opus, mono 48 kHz; EBU R128 -20.2 LUFS, peak +0.3 dBFS (clipping risk, needs review)"
     },
     {
       "id": "srt",
@@ -30,8 +49,9 @@
       "kind": "text",
       "expected_path": "private_media/transcript_he.txt",
       "purpose": "Full Hebrew transcript",
-      "present": false,
-      "inspection": null
+      "present": true,
+      "inspection": null,
+      "note": "operator-pasted in chat; verbatim copy, NOT yet verified against audio (no ASR run)"
     },
     {
       "id": "broll_wetness",

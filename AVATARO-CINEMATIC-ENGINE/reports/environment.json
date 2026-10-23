@@ -4,7 +4,7 @@
   "node": "v22.22.0",
   "cpu_count": 4,
   "ram_gb": 15.7,
-  "disk_free_gb": 31.8,
+  "disk_free_gb": 31.6,
   "gpu": "none detected (CPU only)",
   "python_modules": {
     "numpy": true,

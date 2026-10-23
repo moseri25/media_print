@@ -1,7 +1,7 @@
 {
   "name": "AVATARO — LEGAL REAL ESTATE VIDEO / BUILDING DEFECTS",
   "status": "BLOCKED",
-  "blocked_reason": "Approved presenter video (HeyGen), original audio, SRT (17 segments) and transcript are not present in this environment.",
+  "blocked_reason": "Approved presenter video (HeyGen) and SRT (17 segments) are not present. Original audio and operator-supplied transcript are present (see source_manifest).",
   "output": {
     "aspect": "9:16",
     "width": 1080,
