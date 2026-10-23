@@ -1,0 +1,54 @@
+{
+  "os": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+  "python": "3.13.16",
+  "node": "v22.22.0",
+  "cpu_count": 4,
+  "ram_gb": 15.7,
+  "disk_free_gb": 31.8,
+  "gpu": "none detected (CPU only)",
+  "python_modules": {
+    "numpy": true,
+    "PIL": true,
+    "cv2": false,
+    "cairosvg": false,
+    "torch": false,
+    "opentimelineio": false
+  },
+  "hebrew_fonts": [
+    "DejaVu Sans",
+    "FreeMono",
+    "FreeSans",
+    "FreeSerif",
+    "Liberation Mono",
+    "Liberation Sans",
+    "Liberation Serif",
+    "Noto Rashi Hebrew",
+    "Noto Sans Hebrew",
+    "Noto Serif Hebrew",
+    "Unifont",
+    "Unifont Sample",
+    "Unifont\\-JP"
+  ],
+  "ffmpeg": {
+    "required": "9.0.2",
+    "found": [
+      {
+        "path": "/usr/bin/ffmpeg",
+        "version": "6.1.1-3ubuntu5"
+      }
+    ],
+    "pinned_available": false,
+    "selected": {
+      "path": "/usr/bin/ffmpeg",
+      "version": "6.1.1-3ubuntu5"
+    },
+    "checks": {
+      "libx264": true,
+      "aac": true,
+      "libass": true,
+      "harfbuzz": true,
+      "fribidi": true,
+      "ffprobe": true
+    }
+  }
+}

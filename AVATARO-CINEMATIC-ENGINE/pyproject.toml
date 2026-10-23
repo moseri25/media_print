@@ -1,0 +1,12 @@
+[project]
+name = "avataro"
+version = "0.1.0"
+description = "AVATARO cinematic AI video production engine (code-driven, FFmpeg-rendered)"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pillow"]
+
+[project.scripts]
+avataro = "avataro.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

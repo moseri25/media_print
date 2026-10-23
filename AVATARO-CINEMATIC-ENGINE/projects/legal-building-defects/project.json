@@ -1,0 +1,22 @@
+{
+  "name": "AVATARO — LEGAL REAL ESTATE VIDEO / BUILDING DEFECTS",
+  "status": "BLOCKED",
+  "blocked_reason": "Approved presenter video (HeyGen), original audio, SRT (17 segments) and transcript are not present in this environment.",
+  "output": {
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "vcodec": "libx264",
+    "pix_fmt": "yuv420p",
+    "acodec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "container": "mp4",
+    "faststart": true,
+    "color": "Rec.709 SDR"
+  },
+  "target_duration_s": "measured from approved source (~68.19 s); never padded or trimmed",
+  "ffmpeg_required": "9.0.2 (tag n9.0.2, commit ce8f11b9fac4cd7ccfb41ca7c01bc17f5cda8cc3)",
+  "style": "Premium Legal Cinematic Editorial"
+}
